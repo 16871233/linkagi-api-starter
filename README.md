@@ -9,6 +9,17 @@
 
 > 不要把真实 API Key 提交到 Git 仓库。下面所有 `sk-...` 都是占位符。
 
+## 30 秒路由自检
+
+macOS、Linux 或 WSL 可以直接运行仓库里的只读自检脚本。它不会读取或打印真实 API Key，也不会发起付费模型调用；只验证 DNS、TLS 与四种协议路由是否能到达鉴权层。
+
+```bash
+chmod +x linkagi-preflight.sh
+./linkagi-preflight.sh
+```
+
+未携带 Key 时，`/v1/models`、`/v1/responses`、`/v1/messages` 和 Gemini-compatible 路由返回 JSON `401` 属于预期结果。脚本文件放在仓库根目录，便于直接下载和复查。
+
 ## Base URL 速查
 
 | 工具 | Base URL | 客户端继续请求的路径 |
