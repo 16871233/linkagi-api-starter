@@ -15,6 +15,8 @@
 - [Postman 集合与环境](postman/)
 - [公开 Postman API Network 集合](https://www.postman.com/lhs-1-s-team/linkagi-api/collection/8nl8r40/linkagi-api)
 - [APIs.json 发现清单](apis.json)
+- [机器可读实时价格 JSON](https://api.linktoagi.com/api/pricing)
+- [公开状态 JSON](https://api.linktoagi.com/api/status)
 - [Chatbox Chat / Responses 一键导入配置](integrations/chatbox/)
 - [脱敏兼容性测试脚本](compatibility/)
 - [生态接入与真实性边界](INTEGRATION_STATUS.md)

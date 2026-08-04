@@ -7,6 +7,7 @@ Checked: 2026-08-04 CST.
 | OpenAPI 3.1 | Locally valid JSON; public docs URL still serves HTML fallback | Ready to publish, not deployed to docs site |
 | Postman collection/environment | Public on Postman API Network; logged-out page shows 5 requests in 4 folders; environment API key is empty | Public collection verified 2026-08-04; no paid request was run from Postman |
 | APIs.json discovery manifest | Public repository manifest points to docs, OpenAPI, Postman, signup, pricing, status, terms, privacy, support and source repository | Ready for API directory discovery; not yet deployed at the official domain root |
+| Public pricing/status JSON | `/api/pricing` and `/api/status` returned unauthenticated HTTP 200 JSON on 2026-08-04; pricing response contained 53 model entries | Public and documented in OpenAPI; prices remain time-varying |
 | Chatbox Chat/Responses presets | Schema matched to current Chatbox source; no API key or fixed model list | Deep links generated locally; in-app import and paid call not yet tested |
 | Compatibility runner | Route and secret-handling review complete | Requires a new short-lived low-limit key for fresh protocol tests |
 | models.dev | Provider manifest draft only | Not submitted; stable pricing/model capability evidence is incomplete |

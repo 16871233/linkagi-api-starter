@@ -40,12 +40,53 @@
     }
   ],
   "tags": [
+    {"name": "Public metadata", "description": "Unauthenticated service status and live pricing metadata."},
     {"name": "Discovery", "description": "Inspect the models visible to the current token group."},
     {"name": "OpenAI compatible", "description": "OpenAI-compatible Chat Completions and Responses routes."},
     {"name": "Anthropic-style route", "description": "Messages-shaped route advertised by the service. The route reaches authentication without a key; authenticated native compatibility has not been verified in the latest evidence set."},
     {"name": "Gemini-style route", "description": "generateContent-shaped route advertised by the service. The route reaches authentication without a key; authenticated native compatibility has not been verified in the latest evidence set."}
   ],
   "paths": {
+    "/api/status": {
+      "get": {
+        "operationId": "getPublicStatus",
+        "summary": "Read public service status metadata",
+        "description": "Public unauthenticated JSON endpoint. HTTP 200 with a structured response was rechecked on 2026-08-04.",
+        "tags": ["Public metadata"],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Public service status response.",
+            "content": {
+              "application/json": {
+                "schema": {"type": "object", "additionalProperties": true}
+              }
+            }
+          },
+          "429": {"$ref": "#/components/responses/RateLimited"}
+        }
+      }
+    },
+    "/api/pricing": {
+      "get": {
+        "operationId": "getPublicPricing",
+        "summary": "Read current machine-readable model pricing",
+        "description": "Public unauthenticated JSON endpoint. The response included pricing_version, model data, group ratios, supported endpoints and vendor metadata when rechecked on 2026-08-04. Prices and pools can change; retain the version or collection time and reconcile paid calls against usage logs.",
+        "tags": ["Public metadata"],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Current pricing metadata.",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/PublicPricingResponse"}
+              }
+            }
+          },
+          "429": {"$ref": "#/components/responses/RateLimited"}
+        }
+      }
+    },
     "/v1/models": {
       "get": {
         "operationId": "listModels",
@@ -204,6 +245,21 @@
       "RateLimited": {"description": "Client, group, model, route, or upstream limit reached."}
     },
     "schemas": {
+      "PublicPricingResponse": {
+        "type": "object",
+        "properties": {
+          "success": {"type": "boolean"},
+          "pricing_version": {},
+          "data": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+          "group_ratio": {"type": "object", "additionalProperties": true},
+          "supported_endpoint": {},
+          "vendors": {},
+          "usable_group": {},
+          "auto_groups": {}
+        },
+        "required": ["success", "data"],
+        "additionalProperties": true
+      },
       "Model": {
         "type": "object",
         "properties": {

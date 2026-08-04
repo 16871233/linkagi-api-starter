@@ -39,6 +39,14 @@
           "url": "https://docs.linktoagi.com/"
         },
         {
+          "type": "PricingAPI",
+          "url": "https://api.linktoagi.com/api/pricing"
+        },
+        {
+          "type": "StatusAPI",
+          "url": "https://api.linktoagi.com/api/status"
+        },
+        {
           "type": "OpenAPI",
           "url": "https://raw.githubusercontent.com/16871233/linkagi-api-starter/main/openapi/linkagi.openapi.json"
         },
