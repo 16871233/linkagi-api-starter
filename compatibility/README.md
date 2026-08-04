@@ -10,6 +10,6 @@ export LINKAGI_RESPONSES_MODEL='gpt-5.6-sol'
 LINKAGI_TEST_OUTPUT=/tmp/linkagi-results.ndjson ./compatibility/test-compatibility.sh
 ```
 
-Set `LINKAGI_CHAT_MODEL`, `LINKAGI_CLAUDE_MODEL`, or `LINKAGI_GEMINI_MODEL` only after copying a current compatible model ID from the marketplace. Disable the test key after the run and verify Token usage and the actual deduction in the LinkAGI usage log.
+Set `LINKAGI_CHAT_MODEL`, `LINKAGI_CLAUDE_MODEL`, or `LINKAGI_GEMINI_MODEL` only after copying a current model ID intended for that route from the marketplace. A listed model does not prove protocol compatibility. Disable the test key after the run and verify Token usage and the actual deduction in the LinkAGI usage log.
 
 An HTTP 200 sample proves only that route, model, pool, key, and request at that time. It is not an SLA or proof of upstream model identity.

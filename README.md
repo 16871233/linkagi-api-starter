@@ -1,6 +1,6 @@
 # LinkAGI API Starter
 
-面向国内开发者的 AI API 中转站接入与验证包：用一套 LinkAGI 控制台连接 **Codex、Claude Code、Gemini CLI、Postman 与 Chatbox**，并用可重复测试核对模型、协议、Token 和逐次扣费。
+面向国内开发者的 AI API 中转站发现与验证包：提供 **OpenAI Chat Completions、Responses 以及其他 provider-style 路由**的配置候选、机器可读规范和可重复测试，用于核对模型、协议、Token 与逐次扣费。当前公开成功证据只覆盖 Chat Completions 与 Responses；Claude Code、Gemini CLI 和其他客户端仍需独立实测。
 
 - 注册并创建低额度测试 Key：<https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=ecosystem_20260804&utm_content=readme_signup>
 - 完整中文文档：<https://docs.linktoagi.com/>
@@ -19,9 +19,9 @@
 - [脱敏兼容性测试脚本](compatibility/)
 - [生态接入与真实性边界](INTEGRATION_STATUS.md)
 
-这些资产默认不带 Key，也不写死会变化的模型列表。先运行模型列表请求，再从当前令牌分组中选择模型。
+这些资产默认不带 Key，也不写死会变化的模型列表。鉴权模型列表尚无最新公开成功证据；发送付费请求前应从实时模型广场复制模型名，并用低额度短效 Key 验证当前令牌分组。
 
-公开 Postman 集合包含 5 个请求，覆盖模型发现、OpenAI Chat Completions、OpenAI Responses、Anthropic Messages 与 Gemini-style `generateContent`。先 Fork 集合或直接在 Postman 中运行，再把自己的低额度测试 Key 只保存在本地环境变量中。
+公开 Postman 集合包含 5 个请求，覆盖模型发现、OpenAI Chat Completions、OpenAI Responses、Messages-style 与 Gemini-style `generateContent`。集合描述的是请求表面，不代表五项都已成功调用；API Key 只能保存在自己的本地环境变量中。
 
 ## 30 秒路由自检
 
@@ -32,9 +32,11 @@ chmod +x linkagi-preflight.sh
 ./linkagi-preflight.sh
 ```
 
-未携带 Key 时，`/v1/models`、`/v1/responses`、`/v1/messages` 和 Gemini-compatible 路由返回 JSON `401` 属于预期结果。脚本文件放在仓库根目录，便于直接下载和复查。
+未携带 Key 时，`/v1/models`、`/v1/responses`、`/v1/messages` 和 Gemini-style 路由返回 JSON `401` 属于预期结果。它只证明请求到达鉴权层，不证明协议或客户端兼容。
 
-## Base URL 速查
+## Base URL 候选速查
+
+下表记录公开文档中的目标地址。Codex/Responses 有一次成功调用证据；Claude Code 与 Gemini CLI 尚未完成客户端实测，不能仅凭地址表宣称可用。
 
 | 工具 | Base URL | 客户端继续请求的路径 |
 | --- | --- | --- |
@@ -42,7 +44,7 @@ chmod +x linkagi-preflight.sh
 | Claude Code | `https://api.linktoagi.com` | `/v1/messages` |
 | Gemini CLI | `https://api.linktoagi.com` | `/v1beta/models/...` |
 
-最容易犯的错误是把三种地址写成同一个形式：Claude Code 与 Gemini CLI 使用根地址，Codex 自定义 Responses 提供方则写到 `/v1`。
+地址形式不同：Claude Code 与 Gemini CLI 的文档候选使用根地址，Codex 自定义 Responses 提供方写到 `/v1`。实际使用前仍需用当前模型名和低额度短效 Key 验证。
 
 ## 1. Codex 中转站配置
 
@@ -53,7 +55,7 @@ chmod +x linkagi-preflight.sh
 
 ```toml
 model_provider = "linkagi"
-model = "gpt-5.6-luna"
+model = "copy-current-responses-model-id"
 model_reasoning_effort = "high"
 
 [model_providers.linkagi]
@@ -84,6 +86,8 @@ Windows PowerShell：
 
 ## 2. Claude Code 中转站配置
 
+> 验证边界：以下是待实测配置候选。当前没有原生 Anthropic Messages 或 Claude Code 客户端成功证据。
+
 编辑 `~/.claude/settings.json`（Windows 为 `%USERPROFILE%\.claude\settings.json`）：
 
 ```json
@@ -100,12 +104,14 @@ Windows PowerShell：
 
 ## 3. Gemini CLI 中转站配置
 
+> 验证边界：以下是待实测配置候选。当前没有 Gemini `generateContent` 或 Gemini CLI 客户端成功证据。
+
 创建 `~/.gemini/.env`：
 
 ```dotenv
 GOOGLE_GEMINI_BASE_URL="https://api.linktoagi.com"
 GEMINI_API_KEY="sk-替换为你的Key"
-GEMINI_MODEL="gemini-3.1-pro"
+GEMINI_MODEL="copy-current-gemini-route-model-id"
 ```
 
 再在 `~/.gemini/settings.json` 中选择 API Key 认证：
@@ -120,7 +126,7 @@ GEMINI_MODEL="gemini-3.1-pro"
 }
 ```
 
-模型名只是示例；使用前从实时模型广场复制当前可用 ID。完整排错见 [Gemini CLI 中转站教程](https://docs.linktoagi.com/gemini-cli-api.html?utm_source=github&utm_medium=referral&utm_campaign=github-starter)。
+模型名是占位符；使用前从实时模型广场复制当前 ID，并把首次结果视为兼容性测试而不是既定支持。完整候选配置见 [Gemini CLI 中转站教程](https://docs.linktoagi.com/gemini-cli-api.html?utm_source=github&utm_medium=referral&utm_campaign=github-starter)。
 
 ## 4. 不带 Key 的路由预检
 

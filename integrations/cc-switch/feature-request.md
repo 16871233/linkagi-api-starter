@@ -2,7 +2,7 @@
 
 ## Use case
 
-LinkAGI is an AI API relay used by Chinese developers to access Codex Responses, Anthropic Messages, and Gemini-compatible routes from one account. A CC Switch preset would reduce Base URL mistakes while keeping the API key local.
+LinkAGI is an AI API relay that documents Codex Responses, Messages-style, and Gemini-style routes under one account. Current public success evidence covers Responses, while native Messages, Gemini, and CC Switch client compatibility still require testing. A future CC Switch preset could reduce Base URL mistakes while keeping the API key local.
 
 ## Proposed preset
 

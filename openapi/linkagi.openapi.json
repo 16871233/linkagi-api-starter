@@ -184,7 +184,7 @@
           }
         },
         "responses": {
-          "200": {"description": "Gemini-compatible response returned by the selected route."},
+          "200": {"description": "Response returned by the selected Gemini-style route. A successful native compatibility sample is not part of the latest public evidence set."},
           "400": {"$ref": "#/components/responses/BadRequest"},
           "401": {"$ref": "#/components/responses/Unauthorized"},
           "429": {"$ref": "#/components/responses/RateLimited"}
