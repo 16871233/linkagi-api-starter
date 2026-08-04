@@ -2,8 +2,12 @@ source,medium,campaign,content,destination,purpose,status
 github,repository,ecosystem_20260804,readme_signup,https://api.linktoagi.com/sign-up,Starter repository CTA,link_ready_server_attribution_not_deployed
 postman,public_workspace,api_network,workspace_overview,https://api.linktoagi.com/,Postman workspace CTA,public_verified_attribution_not_deployed
 postman,public_collection,api_network,collection_signup,https://api.linktoagi.com/sign-up,Postman collection CTA,public_verified_attribution_not_deployed
-apis_io,api_directory,api_discovery,linkagi_api,https://api.linktoagi.com/,APIs.io directory listing,manifest_ready_not_submitted
-apis_guru,openapi_directory,openapi_discovery,linkagi_openapi,https://docs.linktoagi.com/,APIs.guru OpenAPI listing,manifest_ready_not_submitted
+apis_io,api_directory,api_discovery,linkagi_api,https://api.linktoagi.com/,APIs.io directory listing,submitted_pending_review_reference_34f28e5f
+apis_guru,openapi_directory,openapi_discovery,linkagi_openapi,https://docs.linktoagi.com/,APIs.guru OpenAPI listing,issue_2970_open_not_listed
+clirank,api_directory,api_discovery,linkagi_api,https://docs.linktoagi.com/,CLIRank directory listing,submission_pending_sub_1785853295012_zpbnd3
+findapi,api_directory,api_discovery,linkagi_api,https://api.linktoagi.com/,FindAPI directory listing,captcha_blocked_form_filled
+getcheapai,provider_registry,api_discovery,linkagi,https://api.linktoagi.com/,AI relay registry listing,pr_2_open_not_merged
+publicapi_dev,api_directory,api_discovery,linkagi_api,https://api.linktoagi.com/,PublicAPI.dev directory listing,payment_blocked_not_submitted
 chatbox,provider_import,ecosystem_20260804,get_api_key,https://api.linktoagi.com/sign-up,Chatbox custom provider CTA,asset_ready_deep_link_not_tested_in_app
 models_dev,provider_registry,ecosystem_20260804,provider_doc,https://docs.linktoagi.com/,models.dev provider listing,draft_not_submitted
 cc_switch,client_preset,ecosystem_20260804,feature_issue,https://docs.linktoagi.com/cc-switch-api.html,CC Switch preset,draft_waiting_real_client_test

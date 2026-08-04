@@ -13,6 +13,11 @@ Checked: 2026-08-04 CST.
 | CC Switch | Feature request draft only | Not filed; repository requires a real client test first |
 | Cherry Studio | Provider proposal documented | Not filed; streaming/tool-call client evidence is incomplete |
 | CCNavX | Public PR #4 open and mergeable | Not merged and no public LinkAGI listing yet |
+| APIs.io | Submission reference `34f28e5f` accepted into the review queue | Pending review; no public detail page verified |
+| APIs.guru | Public issue #2970 open | Requested, not merged into the directory |
+| CLIRank | Submission `sub-1785853295012-zpbnd3` returned HTTP 201 | Pending review; no public listing verified |
+| FindAPI | Truthful form completed | Final submission blocked by Cloudflare human verification |
+| getcheapai registry | Public PR #2 open | Not merged and no registry listing yet |
 | Server-side attribution | Implemented and tested in local product source | Not deployed; production source-to-registration/recharge reporting is unavailable |
 
 The API route itself has prior real evidence for OpenAI Chat Completions (`claude-opus-4-6`, 2026-08-03) and Responses (`gpt-5.6-sol`, 2026-08-04). Those samples do not prove long-term availability, streaming, tools, native Messages, Gemini, or client-specific compatibility.

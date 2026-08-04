@@ -4,11 +4,29 @@
     "title": "LinkAGI API",
     "version": "2026-08-04",
     "description": "LinkAGI AI API relay. Model availability and pricing change by route and pool; copy current model IDs from the live marketplace before sending a paid request.",
-    "termsOfService": "https://api.linktoagi.com/terms",
+    "termsOfService": "https://api.linktoagi.com/user-agreement",
+    "license": {
+      "name": "LinkAGI API Terms",
+      "url": "https://api.linktoagi.com/user-agreement"
+    },
     "contact": {
       "name": "LinkAGI Support",
       "url": "https://docs.linktoagi.com/about.html#support",
-      "email": "support@linktoagi.com"
+      "email": "linktoagi@163.com"
+    },
+    "x-linkagi-evidence": {
+      "checked": "2026-08-04",
+      "verified": [
+        "OpenAI Chat Completions: one authenticated HTTP 200 call using claude-opus-4-6 on 2026-08-03",
+        "OpenAI Responses: one authenticated HTTP 200 call using gpt-5.6-sol on 2026-08-04"
+      ],
+      "notVerified": [
+        "Authenticated model listing",
+        "Native Anthropic Messages compatibility",
+        "Gemini generateContent compatibility",
+        "Streaming and tool calling",
+        "Client-specific integrations"
+      ]
     }
   },
   "externalDocs": {
@@ -24,14 +42,15 @@
   "tags": [
     {"name": "Discovery", "description": "Inspect the models visible to the current token group."},
     {"name": "OpenAI compatible", "description": "OpenAI-compatible Chat Completions and Responses routes."},
-    {"name": "Anthropic compatible", "description": "Anthropic Messages-compatible route."},
-    {"name": "Gemini compatible", "description": "Gemini generateContent-compatible route."}
+    {"name": "Anthropic-style route", "description": "Messages-shaped route advertised by the service. The route reaches authentication without a key; authenticated native compatibility has not been verified in the latest evidence set."},
+    {"name": "Gemini-style route", "description": "generateContent-shaped route advertised by the service. The route reaches authentication without a key; authenticated native compatibility has not been verified in the latest evidence set."}
   ],
   "paths": {
     "/v1/models": {
       "get": {
         "operationId": "listModels",
         "summary": "List models visible to the token",
+        "description": "Requires a valid token. The no-key route reaches authentication, but a fresh authenticated model-list response has not been verified in the latest public evidence set.",
         "tags": ["Discovery"],
         "security": [{"bearerAuth": []}],
         "responses": {
@@ -52,6 +71,7 @@
       "post": {
         "operationId": "createChatCompletion",
         "summary": "Create a chat completion",
+        "description": "Narrow public evidence: one non-streaming HTTP 200 call using claude-opus-4-6 on 2026-08-03. This does not establish long-term availability, streaming, tools, or compatibility for every model.",
         "tags": ["OpenAI compatible"],
         "security": [{"bearerAuth": []}],
         "requestBody": {
@@ -80,6 +100,7 @@
       "post": {
         "operationId": "createResponse",
         "summary": "Create an OpenAI Responses-compatible response",
+        "description": "Narrow public evidence: one non-streaming HTTP 200 call using gpt-5.6-sol on 2026-08-04. This does not establish long-term availability, streaming, tools, or compatibility for every model.",
         "tags": ["OpenAI compatible"],
         "security": [{"bearerAuth": []}],
         "requestBody": {
@@ -107,8 +128,9 @@
     "/v1/messages": {
       "post": {
         "operationId": "createAnthropicMessage",
-        "summary": "Create an Anthropic Messages-compatible response",
-        "tags": ["Anthropic compatible"],
+        "summary": "Send a request to the Anthropic-style Messages route",
+        "description": "The public route reaches structured authentication without a key. A successful authenticated native Anthropic Messages request has not been verified in the latest evidence set; treat this operation as a documented surface pending compatibility testing.",
+        "tags": ["Anthropic-style route"],
         "security": [{"anthropicApiKey": []}],
         "parameters": [
           {
@@ -142,8 +164,9 @@
     "/v1beta/models/{model}:generateContent": {
       "post": {
         "operationId": "generateGeminiContent",
-        "summary": "Generate content with a Gemini-compatible model",
-        "tags": ["Gemini compatible"],
+        "summary": "Send a request to the Gemini-style generateContent route",
+        "description": "The public route reaches structured authentication without a key. A successful authenticated native Gemini generateContent request has not been verified in the latest evidence set; treat this operation as a documented surface pending compatibility testing.",
+        "tags": ["Gemini-style route"],
         "security": [{"geminiApiKey": []}],
         "parameters": [
           {"name": "model", "in": "path", "required": true, "schema": {"type": "string"}}

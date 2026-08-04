@@ -8,8 +8,8 @@
   "tags": [
     "AI API relay",
     "OpenAI compatible",
-    "Anthropic compatible",
-    "Gemini compatible",
+    "Anthropic-style route",
+    "Gemini-style route",
     "Codex",
     "Claude Code"
   ],
@@ -21,7 +21,7 @@
     {
       "aid": "linktoagi.com:linkagi-model-api",
       "name": "LinkAGI Model API",
-      "description": "Authenticated model API routes with OpenAI-compatible, Anthropic-compatible, and Gemini-style request surfaces. Current models and prices are published in the live marketplace.",
+      "description": "Authenticated model API routes with OpenAI-compatible and additional provider-style request surfaces. Current models and prices are published in the live marketplace. The latest public evidence verifies one Chat Completions call and one Responses call; native Anthropic Messages and Gemini compatibility remain unverified.",
       "image": "https://docs.linktoagi.com/favicon.svg",
       "humanURL": "https://docs.linktoagi.com/",
       "baseURL": "https://api.linktoagi.com",
@@ -30,8 +30,8 @@
         "LLM",
         "API relay",
         "OpenAI compatible",
-        "Anthropic compatible",
-        "Gemini compatible"
+        "Anthropic-style route",
+        "Gemini-style route"
       ],
       "properties": [
         {
