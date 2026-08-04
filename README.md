@@ -13,11 +13,15 @@
 
 - [OpenAPI 3.1 规范](openapi/linkagi.openapi.json)
 - [Postman 集合与环境](postman/)
+- [公开 Postman API Network 集合](https://www.postman.com/lhs-1-s-team/linkagi-api/collection/8nl8r40/linkagi-api)
+- [APIs.json 发现清单](apis.json)
 - [Chatbox Chat / Responses 一键导入配置](integrations/chatbox/)
 - [脱敏兼容性测试脚本](compatibility/)
 - [生态接入与真实性边界](INTEGRATION_STATUS.md)
 
 这些资产默认不带 Key，也不写死会变化的模型列表。先运行模型列表请求，再从当前令牌分组中选择模型。
+
+公开 Postman 集合包含 5 个请求，覆盖模型发现、OpenAI Chat Completions、OpenAI Responses、Anthropic Messages 与 Gemini-style `generateContent`。先 Fork 集合或直接在 Postman 中运行，再把自己的低额度测试 Key 只保存在本地环境变量中。
 
 ## 30 秒路由自检
 

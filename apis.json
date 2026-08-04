@@ -1,0 +1,101 @@
+{
+  "aid": "linktoagi.com:linkagi-api-index",
+  "name": "LinkAGI APIs",
+  "type": "Index",
+  "position": "Producing",
+  "access": "3rd-Party",
+  "description": "Public discovery metadata for the LinkAGI AI API relay and model API access service.",
+  "tags": [
+    "AI API relay",
+    "OpenAI compatible",
+    "Anthropic compatible",
+    "Gemini compatible",
+    "Codex",
+    "Claude Code"
+  ],
+  "created": "2026-08-04",
+  "modified": "2026-08-04",
+  "url": "https://raw.githubusercontent.com/16871233/linkagi-api-starter/main/apis.json",
+  "specificationVersion": "0.19",
+  "apis": [
+    {
+      "aid": "linktoagi.com:linkagi-model-api",
+      "name": "LinkAGI Model API",
+      "description": "Authenticated model API routes with OpenAI-compatible, Anthropic-compatible, and Gemini-style request surfaces. Current models and prices are published in the live marketplace.",
+      "image": "https://docs.linktoagi.com/favicon.svg",
+      "humanURL": "https://docs.linktoagi.com/",
+      "baseURL": "https://api.linktoagi.com",
+      "tags": [
+        "AI",
+        "LLM",
+        "API relay",
+        "OpenAI compatible",
+        "Anthropic compatible",
+        "Gemini compatible"
+      ],
+      "properties": [
+        {
+          "type": "Documentation",
+          "url": "https://docs.linktoagi.com/"
+        },
+        {
+          "type": "OpenAPI",
+          "url": "https://raw.githubusercontent.com/16871233/linkagi-api-starter/main/openapi/linkagi.openapi.json"
+        },
+        {
+          "type": "PostmanCollection",
+          "url": "https://www.postman.com/lhs-1-s-team/linkagi-api/collection/8nl8r40/linkagi-api"
+        },
+        {
+          "type": "GitHubRepo",
+          "url": "https://github.com/16871233/linkagi-api-starter"
+        }
+      ],
+      "contact": [
+        {
+          "FN": "LinkAGI Support",
+          "email": "linktoagi@163.com",
+          "url": "https://docs.linktoagi.com/about.html#support"
+        }
+      ]
+    }
+  ],
+  "common": [
+    {
+      "type": "X-Website",
+      "url": "https://api.linktoagi.com/"
+    },
+    {
+      "type": "Signup",
+      "url": "https://api.linktoagi.com/sign-up?source=apis_json&campaign=api_discovery&content=signup"
+    },
+    {
+      "type": "Pricing",
+      "url": "https://api.linktoagi.com/pricing?source=apis_json&campaign=api_discovery&content=pricing"
+    },
+    {
+      "type": "StatusPage",
+      "url": "https://docs.linktoagi.com/status.html"
+    },
+    {
+      "type": "TermsOfService",
+      "url": "https://api.linktoagi.com/user-agreement"
+    },
+    {
+      "type": "PrivacyPolicy",
+      "url": "https://api.linktoagi.com/privacy-policy"
+    },
+    {
+      "type": "Support",
+      "url": "https://docs.linktoagi.com/about.html#support"
+    }
+  ],
+  "maintainers": [
+    {
+      "FN": "LinkAGI Developer Support",
+      "email": "linktoagi@163.com",
+      "url": "https://docs.linktoagi.com/about.html#support",
+      "organizationName": "LinkAGI"
+    }
+  ]
+}
