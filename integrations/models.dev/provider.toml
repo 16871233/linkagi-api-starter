@@ -1,0 +1,5 @@
+name = "LinkAGI"
+npm = "@ai-sdk/openai-compatible"
+env = ["LINKAGI_API_KEY"]
+api = "https://api.linktoagi.com/v1"
+doc = "https://docs.linktoagi.com/?utm_source=models_dev&utm_medium=provider_registry&utm_campaign=ecosystem_20260804&utm_content=provider_doc"

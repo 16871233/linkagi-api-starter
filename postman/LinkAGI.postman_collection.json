@@ -1,0 +1,98 @@
+{
+  "info": {
+    "_postman_id": "9903fabc-92ad-4f94-bbcc-linkagi20260804",
+    "name": "LinkAGI API",
+    "description": "A key-free starter collection for LinkAGI. Import the environment, set api_key locally, copy current model IDs from the live marketplace, and begin with List models. Pricing and route availability can change; verify each paid request in the LinkAGI usage log.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [{"key": "token", "value": "{{api_key}}", "type": "string"}]
+  },
+  "variable": [
+    {"key": "base_url", "value": "https://api.linktoagi.com"},
+    {"key": "api_key", "value": ""},
+    {"key": "chat_model", "value": "copy-a-current-chat-model-id"},
+    {"key": "responses_model", "value": "gpt-5.6-sol"},
+    {"key": "claude_model", "value": "copy-a-current-claude-model-id"},
+    {"key": "gemini_model", "value": "copy-a-current-gemini-model-id"}
+  ],
+  "item": [
+    {
+      "name": "1. Discovery",
+      "item": [
+        {
+          "name": "List models",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {"raw": "{{base_url}}/v1/models", "host": ["{{base_url}}"], "path": ["v1", "models"]},
+            "description": "Run this first. The result depends on the token's group and is more reliable than copying an old model list."
+          },
+          "event": [{"listen": "test", "script": {"exec": ["pm.test('HTTP 200', function () { pm.response.to.have.status(200); });", "pm.test('Response is JSON', function () { pm.response.to.be.json; });"]}}]
+        }
+      ]
+    },
+    {
+      "name": "2. OpenAI compatible",
+      "item": [
+        {
+          "name": "Chat Completions",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"model\": \"{{chat_model}}\",\n  \"messages\": [\n    {\"role\": \"user\", \"content\": \"Reply with: LinkAGI Chat ok\"}\n  ],\n  \"stream\": false,\n  \"max_tokens\": 32\n}"},
+            "url": {"raw": "{{base_url}}/v1/chat/completions", "host": ["{{base_url}}"], "path": ["v1", "chat", "completions"]},
+            "description": "Set chat_model to an ID returned by List models and supported by Chat Completions."
+          },
+          "event": [{"listen": "test", "script": {"exec": ["pm.test('HTTP 200', function () { pm.response.to.have.status(200); });", "pm.test('Usage is present when returned by the route', function () { const body = pm.response.json(); pm.expect(body).to.have.any.keys('usage', 'choices'); });"]}}]
+        },
+        {
+          "name": "Responses",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"model\": \"{{responses_model}}\",\n  \"input\": \"Reply with: LinkAGI Responses ok\",\n  \"stream\": false,\n  \"max_output_tokens\": 32\n}"},
+            "url": {"raw": "{{base_url}}/v1/responses", "host": ["{{base_url}}"], "path": ["v1", "responses"]},
+            "description": "The 2026-08-04 compatibility sample used gpt-5.6-sol and returned HTTP 200. Model and pool availability remain time-dependent."
+          },
+          "event": [{"listen": "test", "script": {"exec": ["pm.test('HTTP 200', function () { pm.response.to.have.status(200); });", "pm.test('Response has an id or output', function () { const body = pm.response.json(); pm.expect(body).to.have.any.keys('id', 'output', 'output_text'); });"]}}]
+        }
+      ]
+    },
+    {
+      "name": "3. Anthropic compatible",
+      "item": [
+        {
+          "name": "Messages",
+          "request": {
+            "auth": {"type": "apikey", "apikey": [{"key": "key", "value": "x-api-key", "type": "string"}, {"key": "value", "value": "{{api_key}}", "type": "string"}, {"key": "in", "value": "header", "type": "string"}]},
+            "method": "POST",
+            "header": [{"key": "anthropic-version", "value": "2023-06-01"}, {"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"model\": \"{{claude_model}}\",\n  \"max_tokens\": 32,\n  \"messages\": [\n    {\"role\": \"user\", \"content\": \"Reply with: LinkAGI Messages ok\"}\n  ]\n}"},
+            "url": {"raw": "{{base_url}}/v1/messages", "host": ["{{base_url}}"], "path": ["v1", "messages"]},
+            "description": "Set claude_model to a current ID visible to the token group."
+          },
+          "event": [{"listen": "test", "script": {"exec": ["pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"]}}]
+        }
+      ]
+    },
+    {
+      "name": "4. Gemini compatible",
+      "item": [
+        {
+          "name": "generateContent",
+          "request": {
+            "auth": {"type": "apikey", "apikey": [{"key": "key", "value": "x-goog-api-key", "type": "string"}, {"key": "value", "value": "{{api_key}}", "type": "string"}, {"key": "in", "value": "header", "type": "string"}]},
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"contents\": [\n    {\"role\": \"user\", \"parts\": [{\"text\": \"Reply with: LinkAGI Gemini ok\"}]}\n  ],\n  \"generationConfig\": {\"maxOutputTokens\": 32}\n}"},
+            "url": {"raw": "{{base_url}}/v1beta/models/{{gemini_model}}:generateContent", "host": ["{{base_url}}"], "path": ["v1beta", "models", "{{gemini_model}}:generateContent"]},
+            "description": "Set gemini_model to a current ID visible to the token group."
+          },
+          "event": [{"listen": "test", "script": {"exec": ["pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"]}}]
+        }
+      ]
+    }
+  ]
+}

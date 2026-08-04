@@ -1,0 +1,267 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "LinkAGI API",
+    "version": "2026-08-04",
+    "description": "LinkAGI AI API relay. Model availability and pricing change by route and pool; copy current model IDs from the live marketplace before sending a paid request.",
+    "termsOfService": "https://api.linktoagi.com/terms",
+    "contact": {
+      "name": "LinkAGI Support",
+      "url": "https://docs.linktoagi.com/about.html#support",
+      "email": "support@linktoagi.com"
+    }
+  },
+  "externalDocs": {
+    "description": "LinkAGI documentation",
+    "url": "https://docs.linktoagi.com/?utm_source=openapi&utm_medium=developer_tool&utm_campaign=ecosystem_20260804&utm_content=external_docs"
+  },
+  "servers": [
+    {
+      "url": "https://api.linktoagi.com",
+      "description": "Production API"
+    }
+  ],
+  "tags": [
+    {"name": "Discovery", "description": "Inspect the models visible to the current token group."},
+    {"name": "OpenAI compatible", "description": "OpenAI-compatible Chat Completions and Responses routes."},
+    {"name": "Anthropic compatible", "description": "Anthropic Messages-compatible route."},
+    {"name": "Gemini compatible", "description": "Gemini generateContent-compatible route."}
+  ],
+  "paths": {
+    "/v1/models": {
+      "get": {
+        "operationId": "listModels",
+        "summary": "List models visible to the token",
+        "tags": ["Discovery"],
+        "security": [{"bearerAuth": []}],
+        "responses": {
+          "200": {
+            "description": "Model list",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/ModelList"}
+              }
+            }
+          },
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "429": {"$ref": "#/components/responses/RateLimited"}
+        }
+      }
+    },
+    "/v1/chat/completions": {
+      "post": {
+        "operationId": "createChatCompletion",
+        "summary": "Create a chat completion",
+        "tags": ["OpenAI compatible"],
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/ChatCompletionRequest"},
+              "example": {
+                "model": "copy-a-current-chat-model-id",
+                "messages": [{"role": "user", "content": "Reply with: LinkAGI API ok"}],
+                "stream": false,
+                "max_tokens": 32
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "Chat completion returned by the selected route."},
+          "400": {"$ref": "#/components/responses/BadRequest"},
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "429": {"$ref": "#/components/responses/RateLimited"}
+        }
+      }
+    },
+    "/v1/responses": {
+      "post": {
+        "operationId": "createResponse",
+        "summary": "Create an OpenAI Responses-compatible response",
+        "tags": ["OpenAI compatible"],
+        "security": [{"bearerAuth": []}],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/ResponseRequest"},
+              "example": {
+                "model": "gpt-5.6-sol",
+                "input": "Reply with: LinkAGI Responses ok",
+                "stream": false,
+                "max_output_tokens": 32
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "Response returned by the selected route."},
+          "400": {"$ref": "#/components/responses/BadRequest"},
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "429": {"$ref": "#/components/responses/RateLimited"}
+        }
+      }
+    },
+    "/v1/messages": {
+      "post": {
+        "operationId": "createAnthropicMessage",
+        "summary": "Create an Anthropic Messages-compatible response",
+        "tags": ["Anthropic compatible"],
+        "security": [{"anthropicApiKey": []}],
+        "parameters": [
+          {
+            "name": "anthropic-version",
+            "in": "header",
+            "required": true,
+            "schema": {"type": "string", "default": "2023-06-01"}
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/AnthropicMessageRequest"},
+              "example": {
+                "model": "copy-a-current-claude-model-id",
+                "max_tokens": 32,
+                "messages": [{"role": "user", "content": "Reply with: LinkAGI Messages ok"}]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "Message returned by the selected route."},
+          "400": {"$ref": "#/components/responses/BadRequest"},
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "429": {"$ref": "#/components/responses/RateLimited"}
+        }
+      }
+    },
+    "/v1beta/models/{model}:generateContent": {
+      "post": {
+        "operationId": "generateGeminiContent",
+        "summary": "Generate content with a Gemini-compatible model",
+        "tags": ["Gemini compatible"],
+        "security": [{"geminiApiKey": []}],
+        "parameters": [
+          {"name": "model", "in": "path", "required": true, "schema": {"type": "string"}}
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/GeminiGenerateRequest"},
+              "example": {
+                "contents": [{"role": "user", "parts": [{"text": "Reply with: LinkAGI Gemini ok"}]}],
+                "generationConfig": {"maxOutputTokens": 32}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {"description": "Gemini-compatible response returned by the selected route."},
+          "400": {"$ref": "#/components/responses/BadRequest"},
+          "401": {"$ref": "#/components/responses/Unauthorized"},
+          "429": {"$ref": "#/components/responses/RateLimited"}
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "API key"},
+      "anthropicApiKey": {"type": "apiKey", "in": "header", "name": "x-api-key"},
+      "geminiApiKey": {"type": "apiKey", "in": "header", "name": "x-goog-api-key"}
+    },
+    "responses": {
+      "BadRequest": {"description": "Invalid body, model ID, group, or unsupported request field."},
+      "Unauthorized": {"description": "Missing, invalid, expired, disabled, or unauthorized API key."},
+      "RateLimited": {"description": "Client, group, model, route, or upstream limit reached."}
+    },
+    "schemas": {
+      "Model": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "object": {"type": "string", "default": "model"},
+          "owned_by": {"type": "string"}
+        },
+        "required": ["id"]
+      },
+      "ModelList": {
+        "type": "object",
+        "properties": {
+          "object": {"type": "string", "default": "list"},
+          "data": {"type": "array", "items": {"$ref": "#/components/schemas/Model"}}
+        },
+        "required": ["data"]
+      },
+      "ChatMessage": {
+        "type": "object",
+        "properties": {
+          "role": {"type": "string", "enum": ["system", "developer", "user", "assistant", "tool"]},
+          "content": {}
+        },
+        "required": ["role", "content"],
+        "additionalProperties": true
+      },
+      "ChatCompletionRequest": {
+        "type": "object",
+        "properties": {
+          "model": {"type": "string"},
+          "messages": {"type": "array", "items": {"$ref": "#/components/schemas/ChatMessage"}},
+          "stream": {"type": "boolean", "default": false},
+          "max_tokens": {"type": "integer", "minimum": 1}
+        },
+        "required": ["model", "messages"],
+        "additionalProperties": true
+      },
+      "ResponseRequest": {
+        "type": "object",
+        "properties": {
+          "model": {"type": "string"},
+          "input": {},
+          "stream": {"type": "boolean", "default": false},
+          "max_output_tokens": {"type": "integer", "minimum": 1}
+        },
+        "required": ["model", "input"],
+        "additionalProperties": true
+      },
+      "AnthropicMessageRequest": {
+        "type": "object",
+        "properties": {
+          "model": {"type": "string"},
+          "max_tokens": {"type": "integer", "minimum": 1},
+          "messages": {"type": "array", "items": {"$ref": "#/components/schemas/ChatMessage"}},
+          "stream": {"type": "boolean", "default": false}
+        },
+        "required": ["model", "max_tokens", "messages"],
+        "additionalProperties": true
+      },
+      "GeminiPart": {
+        "type": "object",
+        "properties": {"text": {"type": "string"}},
+        "additionalProperties": true
+      },
+      "GeminiContent": {
+        "type": "object",
+        "properties": {
+          "role": {"type": "string"},
+          "parts": {"type": "array", "items": {"$ref": "#/components/schemas/GeminiPart"}}
+        },
+        "required": ["parts"]
+      },
+      "GeminiGenerateRequest": {
+        "type": "object",
+        "properties": {
+          "contents": {"type": "array", "items": {"$ref": "#/components/schemas/GeminiContent"}},
+          "generationConfig": {"type": "object", "additionalProperties": true}
+        },
+        "required": ["contents"],
+        "additionalProperties": true
+      }
+    }
+  }
+}

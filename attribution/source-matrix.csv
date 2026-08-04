@@ -1,0 +1,8 @@
+source,medium,campaign,content,destination,purpose,status
+github,repository,ecosystem_20260804,readme_signup,https://api.linktoagi.com/sign-up,Starter repository CTA,link_ready_server_attribution_not_deployed
+postman,public_workspace,ecosystem_20260804,collection_signup,https://api.linktoagi.com/sign-up,Postman workspace CTA,asset_ready_workspace_not_published
+chatbox,provider_import,ecosystem_20260804,get_api_key,https://api.linktoagi.com/sign-up,Chatbox custom provider CTA,asset_ready_deep_link_not_tested_in_app
+models_dev,provider_registry,ecosystem_20260804,provider_doc,https://docs.linktoagi.com/,models.dev provider listing,draft_not_submitted
+cc_switch,client_preset,ecosystem_20260804,feature_issue,https://docs.linktoagi.com/cc-switch-api.html,CC Switch preset,draft_waiting_real_client_test
+cherry_studio,provider_registry,ecosystem_20260804,get_api_key,https://api.linktoagi.com/sign-up,Cherry Studio provider preset,draft_waiting_real_client_test
+ccnavx,provider_listing,provider_listing,linkagi,https://api.linktoagi.com/,CCNavX directory listing,pr_open_not_merged

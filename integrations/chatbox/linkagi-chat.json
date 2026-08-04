@@ -1,0 +1,16 @@
+{
+  "isCustom": true,
+  "id": "linkagi-chat",
+  "name": "LinkAGI Chat",
+  "type": "openai",
+  "iconUrl": "https://docs.linktoagi.com/favicon.svg",
+  "urls": {
+    "website": "https://api.linktoagi.com/?utm_source=chatbox&utm_medium=provider_import&utm_campaign=ecosystem_20260804&utm_content=website",
+    "getApiKey": "https://api.linktoagi.com/sign-up?utm_source=chatbox&utm_medium=provider_import&utm_campaign=ecosystem_20260804&utm_content=get_api_key",
+    "docs": "https://docs.linktoagi.com/?utm_source=chatbox&utm_medium=provider_import&utm_campaign=ecosystem_20260804&utm_content=docs",
+    "models": "https://api.linktoagi.com/pricing?utm_source=chatbox&utm_medium=provider_import&utm_campaign=ecosystem_20260804&utm_content=models"
+  },
+  "settings": {
+    "apiHost": "https://api.linktoagi.com"
+  }
+}

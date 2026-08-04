@@ -1,13 +1,23 @@
 # LinkAGI API Starter
 
-面向国内开发者的 AI API 中转站接入速查：用一套 LinkAGI 控制台配置 **Codex、Claude Code、Gemini CLI**，并快速判断 `/v1`、API Key、模型名和令牌分组问题。
+面向国内开发者的 AI API 中转站接入与验证包：用一套 LinkAGI 控制台连接 **Codex、Claude Code、Gemini CLI、Postman 与 Chatbox**，并用可重复测试核对模型、协议、Token 和逐次扣费。
 
-- API 控制台：<https://api.linktoagi.com/?utm_source=github&utm_medium=referral&utm_campaign=github-starter>
+- 注册并创建低额度测试 Key：<https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=ecosystem_20260804&utm_content=readme_signup>
 - 完整中文文档：<https://docs.linktoagi.com/>
-- 实时模型与价格：<https://api.linktoagi.com/pricing?utm_source=github&utm_medium=referral&utm_campaign=github-starter>
+- 实时模型与价格：<https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=ecosystem_20260804&utm_content=readme_models>
 - GPT-5.6 人民币成本计算器：<https://docs.linktoagi.com/tools/gpt-cost-calculator/?utm_source=github&utm_medium=referral&utm_campaign=github-starter>
 
 > 不要把真实 API Key 提交到 Git 仓库。下面所有 `sk-...` 都是占位符。
+
+## 可导入资产
+
+- [OpenAPI 3.1 规范](openapi/linkagi.openapi.json)
+- [Postman 集合与环境](postman/)
+- [Chatbox Chat / Responses 一键导入配置](integrations/chatbox/)
+- [脱敏兼容性测试脚本](compatibility/)
+- [生态接入与真实性边界](INTEGRATION_STATUS.md)
+
+这些资产默认不带 Key，也不写死会变化的模型列表。先运行模型列表请求，再从当前令牌分组中选择模型。
 
 ## 30 秒路由自检
 
@@ -137,14 +147,11 @@ curl -i 'https://api.linktoagi.com/v1beta/models/gemini-3.1-pro:generateContent'
 | `429` | 并发、频率与分组限流 |
 | `5xx` / timeout | 短请求是否可用、实时号池状态、系统公告与使用日志 |
 
-## GPT-5.6 API 价格快照
+## 价格与可用性边界
 
-2026-07-23 的 LinkAGI 公开快照中，`gpt-5.6-luna` Sale 号池约为：
+模型、号池、倍率和输入/输出价格会变化，本仓库不维护一个容易过期的“最低价”数字。请以[实时模型广场](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=ecosystem_20260804&utm_content=price_boundary)和自己的逐次使用日志为准。
 
-- 输入：`¥0.12 / 百万 Token`
-- 输出：`¥0.72 / 百万 Token`
-
-最低档号池可能补量、暂停或调整。不要把快照当成长期承诺，请以 [实时模型广场](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=referral&utm_campaign=github-starter) 和实际使用日志为准。
+一次 HTTP 200 只证明当时的模型、号池、Key 和请求成功，不等于长期稳定、官方直连或模型身份鉴定。重要任务应使用固定样例测试工具调用、长上下文、结构化输出和失败模式，并准备备用路线。
 
 ## 联系支持
 

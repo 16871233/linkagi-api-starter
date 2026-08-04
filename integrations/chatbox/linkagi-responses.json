@@ -1,0 +1,16 @@
+{
+  "isCustom": true,
+  "id": "linkagi-responses",
+  "name": "LinkAGI Responses",
+  "type": "openai-responses",
+  "iconUrl": "https://docs.linktoagi.com/favicon.svg",
+  "urls": {
+    "website": "https://api.linktoagi.com/?utm_source=chatbox&utm_medium=provider_import&utm_campaign=ecosystem_20260804&utm_content=responses_website",
+    "getApiKey": "https://api.linktoagi.com/sign-up?utm_source=chatbox&utm_medium=provider_import&utm_campaign=ecosystem_20260804&utm_content=responses_get_api_key",
+    "docs": "https://docs.linktoagi.com/codex-api.html?utm_source=chatbox&utm_medium=provider_import&utm_campaign=ecosystem_20260804&utm_content=responses_docs",
+    "models": "https://api.linktoagi.com/pricing?utm_source=chatbox&utm_medium=provider_import&utm_campaign=ecosystem_20260804&utm_content=responses_models"
+  },
+  "settings": {
+    "apiHost": "https://api.linktoagi.com"
+  }
+}
