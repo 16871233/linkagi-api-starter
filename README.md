@@ -11,6 +11,8 @@
 
 Claude Code 返回 401 时，可直接阅读仓库内的 [Base URL 与 Key 排错文档](docs/claude-code-401.md)。
 
+也可以查看[通用 401/404/429 排错清单](docs/api-401-404-429-checklist.md)，或下载[浏览器路由诊断工具](tools/linkagi-diagnose.html)做只读检查。
+
 > 不要把真实 API Key 提交到 Git 仓库。下面所有 `sk-...` 都是占位符。
 
 ## 可导入资产
@@ -24,6 +26,8 @@ Claude Code 返回 401 时，可直接阅读仓库内的 [Base URL 与 Key 排�
 - [Chatbox Chat / Responses 一键导入配置](integrations/chatbox/)
 - [脱敏兼容性测试脚本](compatibility/)
 - [Claude Code 401 排错文档](docs/claude-code-401.md)
+- [通用 401/404/429 排错清单](docs/api-401-404-429-checklist.md)
+- [浏览器路由诊断工具](tools/linkagi-diagnose.html)
 - [生态接入与真实性边界](INTEGRATION_STATUS.md)
 
 这些资产默认不带 Key，也不写死会变化的模型列表。鉴权模型列表尚无最新公开成功证据；发送付费请求前应从实时模型广场复制模型名，并用低额度短效 Key 验证当前令牌分组。
