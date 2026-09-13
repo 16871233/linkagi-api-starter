@@ -1,17 +1,23 @@
 # LinkAGI API Starter
 
-面向国内开发者的 AI API 中转站发现与验证包：提供 **OpenAI Chat Completions、Responses 以及其他 provider-style 路由**的配置候选、机器可读规范和可重复测试，用于核对模型、协议、Token 与逐次扣费。当前公开成功证据只覆盖 Chat Completions 与 Responses；Claude Code、Gemini CLI 和其他客户端仍需独立实测。
+LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、独立 API Key、模型与分组选择，以及逐次调用日志。这个仓库放接入说明、请求样例和排错工具，由 LinkAGI 运营方维护。
 
-- 注册并创建低额度测试 Key：<https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=ecosystem_20260908&utm_content=readme_signup>
-- 完整中文文档：<https://docs.linktoagi.com/>
-- 实时模型与价格：<https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=ecosystem_20260908&utm_content=readme_models>
-- GPT-5.6 人民币成本计算器：<https://docs.linktoagi.com/tools/gpt-cost-calculator/?utm_source=github&utm_medium=referral&utm_campaign=github-starter>
+**[打开在线接入导航](https://16871233.github.io/linkagi-api-starter/)**：复制客户端地址、查看首次调用步骤、估算 Token 费用。
 
-遇到 Codex `401/404` 时，可先看这份 [B 站状态码排错表](https://www.bilibili.com/read/cv52899307/)，再运行仓库内的只读预检脚本。
+[注册 LinkAGI](https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=onboarding_20260913&utm_content=readme_signup) · [实时模型与价格](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=onboarding_20260913&utm_content=readme_pricing) · [完整中文文档](https://docs.linktoagi.com/) · [联系客服](https://docs.linktoagi.com/about.html#support)
 
-Claude Code 返回 401 时，可直接阅读仓库内的 [Base URL 与 Key 排错文档](docs/claude-code-401.md)。
+首次使用可以按这个顺序操作：
 
-也可以查看[通用 401/404/429 排错清单](docs/api-401-404-429-checklist.md)，或下载[浏览器路由诊断工具](tools/linkagi-diagnose.html)做只读检查。
+1. 注册并完成邮箱验证，在[钱包](https://api.linktoagi.com/wallet)核对实际可用余额。
+2. 从[模型广场](https://api.linktoagi.com/pricing)选择模型和分组，再到[API 密钥](https://api.linktoagi.com/keys)创建独立测试 Key。
+3. 按下方教程配置客户端，先发送一条短请求。
+4. 到[使用日志](https://api.linktoagi.com/usage-logs/common)核对模型、Token、状态与扣费，再决定是否继续使用。
+
+**试用说明更新（2026-09-13）：** 当前新用户自动赠送配额为 0。旧内容中的“注册自动赠送 ¥0.2”已不适用；如需试用，请先向客服确认当前方式与额度，到账后再调用。
+
+当前仓库记录了 Chat Completions 与 Responses 的历史成功样例；Claude Code、Gemini CLI 和其他客户端的完整流程仍需独立实测。地址与示例不代表所有模型、流式输出或工具调用已经验证。
+
+遇到错误时可查阅 [Claude Code 401](docs/claude-code-401.md)、[通用 401/404/429 清单](docs/api-401-404-429-checklist.md)，也可以下载[浏览器路由诊断工具](tools/linkagi-diagnose.html)。
 
 > 不要把真实 API Key 提交到 Git 仓库。下面所有 `sk-...` 都是占位符。
 
