@@ -4,7 +4,17 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 
 **[打开在线接入导航](https://16871233.github.io/linkagi-api-starter/)**：复制客户端地址、查看首次调用步骤、估算 Token 费用。
 
-[注册 LinkAGI](https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=onboarding_20260913&utm_content=readme_signup) · [实时模型与价格](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=onboarding_20260913&utm_content=readme_pricing) · [完整中文文档](https://docs.linktoagi.com/) · [联系客服](https://docs.linktoagi.com/about.html#support)
+[注册 LinkAGI](https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=direct_price_20260917&utm_content=readme_signup) · [实时模型与价格](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=direct_price_20260917&utm_content=readme_pricing) · [完整中文文档](https://docs.linktoagi.com/) · [联系客服](https://docs.linktoagi.com/about.html#support)
+
+2026-09-17 价格页快照，单位为人民币 / 百万 Token；下表列出长度低于 272K 的档位。
+
+| 站内模型名 | 分组 | 输入 | 输出 |
+| --- | --- | ---: | ---: |
+| `gpt-6-astra` | Codex · Plus 号池 | ¥2 | ¥10 |
+| `gpt-5.6-terra` | Codex · Sale 号池 | ¥0.30 | ¥1.80 |
+| `gpt-5.6-sol` | Codex · Sale 号池 | ¥0.75 | ¥4.50 |
+
+输入、输出分别计费，长上下文和缓存另有规则，分组不同价格也不同。请在[实时价格页](https://api.linktoagi.com/pricing)查看完整分档后再调用。例如 Astra 上述档位的一次请求，1 万输入 Token + 2 千输出 Token，不涉及缓存时为 ¥0.04；多轮请求和重试需累加。
 
 首次使用可以按这个顺序操作：
 
@@ -13,7 +23,7 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 3. 按下方教程配置客户端，先发送一条短请求。
 4. 到[使用日志](https://api.linktoagi.com/usage-logs/common)核对模型、Token、状态与扣费，再决定是否继续使用。
 
-**试用说明更新（2026-09-13）：** 当前新用户自动赠送配额为 0。旧内容中的“注册自动赠送 ¥0.2”已不适用；如需试用，请先向客服确认当前方式与额度，到账后再调用。
+**试用说明（2026-09-17 复核）：** 当前新用户自动赠送配额为 0。旧内容中的“注册自动赠送 ¥0.2”已不适用；如需试用，请先向客服确认当前方式与额度，到账后再调用。
 
 当前仓库记录了 Chat Completions 与 Responses 的历史成功样例；Claude Code、Gemini CLI 和其他客户端的完整流程仍需独立实测。地址与示例不代表所有模型、流式输出或工具调用已经验证。
 
