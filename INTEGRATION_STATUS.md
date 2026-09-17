@@ -1,10 +1,10 @@
 # Integration status
 
-Original asset audit: 2026-08-04 CST. Directory and onboarding updates: 2026-09-13 CST. Dates in each row are the relevant verification dates.
+Original asset audit: 2026-08-04 CST. Latest public endpoint check: 2026-09-17 CST. Dates in each row are the relevant verification dates.
 
 | Asset or channel | Current state | Evidence boundary |
 | --- | --- | --- |
-| OpenAPI 3.1 | Locally valid JSON; public docs URL still serves HTML fallback | Ready to publish, not deployed to docs site |
+| OpenAPI 3.1 | [Public docs JSON](https://docs.linktoagi.com/openapi/linkagi.openapi.json) returns OpenAPI 3.1.0, title LinkAGI API, with 7 paths; checked 2026-09-17 | The specification is publicly accessible; this is not a paid-call compatibility test |
 | Postman collection/environment | Public on Postman API Network; logged-out page shows 5 requests in 4 folders; environment API key is empty | Public collection verified 2026-08-04; no paid request was run from Postman |
 | APIs.json discovery manifest | Public repository manifest points to docs, OpenAPI, Postman, signup, pricing, status, terms, privacy, support and source repository | Ready for API directory discovery; not yet deployed at the official domain root |
 | Public pricing/status JSON | `/api/pricing` and `/api/status` returned unauthenticated HTTP 200 JSON on 2026-08-04; pricing response contained 53 model entries | Public and documented in OpenAPI; prices remain time-varying |
@@ -17,7 +17,7 @@ Original asset audit: 2026-08-04 CST. Directory and onboarding updates: 2026-09-
 | APIs.io | Submission reference `34f28e5f` accepted into the review queue | Pending review; no public detail page verified |
 | APIs.guru | [Issue #2970](https://github.com/APIs-guru/openapi-directory/issues/2970) still open on 2026-09-13 | Requested, not merged into the directory |
 | CLIRank | Submission `sub-1785853295012-zpbnd3` returned HTTP 201 | Pending review; no public listing verified |
-| FindAPI | Truthful form completed | Final submission blocked by Cloudflare human verification |
+| FindAPI | Previously recorded as submitted after human verification | No public LinkAGI listing verified; submission is not evidence of acceptance |
 | getcheapai registry | [PR #2](https://github.com/getcheapai/ai-proxy-registry/pull/2) still open on 2026-09-13 | Not merged; a public website listing is not verified |
 | Server-side attribution | Implemented and tested in local product source | Not deployed; production source-to-registration/recharge reporting is unavailable |
 
