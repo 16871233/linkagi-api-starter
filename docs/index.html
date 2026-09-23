@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LinkAGI AI API 中转站｜人民币模型价格与接入</title>
-  <meta name="description" content="LinkAGI AI API 中转站：人民币按量计费，公开模型与分组价格，独立 API Key 和逐次调用日志。查看 GPT 模型价格、费用算例、Base URL 与注册接入入口。">
+  <title>LinkAGI AI API 中转站｜Codex、Claude Code、Gemini 接入与价格</title>
+  <meta name="description" content="LinkAGI AI API 中转站接入指南：查看 Codex、Claude Code、Gemini CLI 的 Base URL 与配置步骤，前往实时模型广场查询人民币价格，并用本地计算器估算 Token 费用。">
   <link rel="canonical" href="https://16871233.github.io/linkagi-api-starter/">
-  <meta property="og:title" content="LinkAGI AI API 中转站｜模型价格与接入">
-  <meta property="og:description" content="人民币按量计费，公开模型与分组价格。选模型、算费用、注册接入。">
+  <meta property="og:title" content="LinkAGI AI API 中转站｜客户端接入与实时价格">
+  <meta property="og:description" content="查看 Codex、Claude Code、Gemini CLI 配置步骤，前往实时模型广场查价并估算 Token 费用。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://16871233.github.io/linkagi-api-starter/">
   <meta name="theme-color" content="#134d43">
-  <link rel="stylesheet" href="site.css?v=20260917">
+  <link rel="stylesheet" href="site.css?v=20260923">
   <script src="site.js" defer></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
         <p class="eyebrow">LinkAGI · AI API 中转站</p>
         <h1>选好模型，<br>按实际用量付费。</h1>
         <p class="lead">人民币计费，输入、输出价格公开。为不同项目创建独立 API Key，每次请求用了多少 Token、扣了多少钱，都可以在控制台查看。</p>
-        <div class="actions"><a class="button primary" data-content="hero_signup" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=direct_price_20260917&amp;utm_content=hero_signup">注册 LinkAGI ↗</a><a class="button" href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=direct_price_20260917&amp;utm_content=hero_pricing">先看模型与价格</a></div>
+        <div class="actions"><a class="button primary" data-content="hero_signup" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=hero_signup">注册 LinkAGI ↗</a><a class="button" href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=hero_pricing">先看模型与价格</a></div>
         <p class="quiet">已有账号？<a href="https://api.linktoagi.com/dashboard/overview">进入控制台</a>。选模型或接入遇到问题，可以<a href="https://docs.linktoagi.com/about.html#support">联系客服</a>。</p>
       </div>
       <aside class="intro-card" aria-label="接入顺序">
@@ -36,14 +36,9 @@
     </section>
 
     <section id="prices" class="section">
-      <div class="section-title"><div><p class="eyebrow">模型与分组 · 2026-09-17 价格快照</p><h2>先看价格，再决定用哪个。</h2></div><p>人民币 / 百万 Token<br>下列价格适用于长度低于 272K 的档位</p></div>
-      <div class="price-grid">
-        <article class="price-card"><p class="eyebrow">Codex · Plus 号池</p><h3>gpt-6-astra</h3><dl><div><dt>输入 / 百万 Token</dt><dd>¥2</dd></div><div><dt>输出 / 百万 Token</dt><dd>¥10</dd></div></dl><p>1 万输入 + 2 千输出 Token：<strong>¥0.04</strong></p></article>
-        <article class="price-card"><p class="eyebrow">Codex · Sale 号池</p><h3>gpt-5.6-terra</h3><dl><div><dt>输入 / 百万 Token</dt><dd>¥0.30</dd></div><div><dt>输出 / 百万 Token</dt><dd>¥1.80</dd></div></dl><p>1 万输入 + 2 千输出 Token：<strong>¥0.0066</strong></p></article>
-        <article class="price-card"><p class="eyebrow">Codex · Sale 号池</p><h3>gpt-5.6-sol</h3><dl><div><dt>输入 / 百万 Token</dt><dd>¥0.75</dd></div><div><dt>输出 / 百万 Token</dt><dd>¥4.50</dd></div></dl><p>1 万输入 + 2 千输出 Token：<strong>¥0.0165</strong></p></article>
-      </div>
-      <p class="note">算例为单次普通文本请求，不涉及缓存。长上下文、缓存和不同分组另有计费规则；多轮请求与重试需要累加。模型与价格可能调整，调用前请查看完整分档。</p>
-      <div class="actions"><a class="button primary" href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=direct_price_20260917&amp;utm_content=price_cards">查看实时价格与全部模型 ↗</a><a class="button" href="#cost">按自己的 Token 数估算</a></div>
+      <div class="section-title"><div><p class="eyebrow">模型、分组与人民币计费</p><h2>先看当前价格，再决定用哪个。</h2></div><p>价格会随模型、分组、上下文长度和缓存方式变化。<br>本页不保存价格快照。</p></div>
+      <p>模型广场显示当前可用模型、分组和计费规则。比较时分别看输入、输出与缓存价格；长上下文、多轮请求和重试都可能改变实际成本。发起调用后，可在使用日志核对本次 Token 数和实际扣费。</p>
+      <div class="actions"><a class="button primary" href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=live_pricing">打开实时模型与价格 ↗</a><a class="button" href="#cost">按自己的 Token 数估算</a></div>
     </section>
 
     <section id="connect" class="section">
@@ -66,7 +61,7 @@
         <li><h3>填入客户端，发送短请求</h3><p>选择上方对应教程，填入地址、Key 和完整模型名。先让模型回复一句简短的话，暂时关闭自动循环与批量任务。</p></li>
         <li><h3>在日志里看结果</h3><p>打开<a href="https://api.linktoagi.com/usage-logs/common">使用日志</a>，按调用时间核对模型、Token、响应状态和实际扣费。再用一个小任务评估是否适合继续使用。</p></li>
       </ol>
-      <details class="notice"><summary>可以先试用吗？</summary><p>需要试用安排，请<a href="https://docs.linktoagi.com/about.html#support">联系客服</a>确认当前可用模型与额度。当前注册不会自动赠送调用额度。</p></details>
+      <details class="notice" open><summary>可以先试用吗？</summary><p>注册不会自动赠送调用额度。需要试用安排，请<a href="https://docs.linktoagi.com/about.html#support">联系客服</a>确认当前方式、可用模型与额度，余额到账后再调用。</p></details>
     </section>
 
     <section id="cost" class="section calculator">
@@ -81,8 +76,8 @@
     </section>
 
     <section class="section resources"><div><p class="eyebrow">04 / 开发者资料</p><h2>需要直接调接口？</h2><p>可以导入 Postman 集合，也可以下载请求规范。示例里的 Key 和模型名需要替换成你自己的配置。</p></div><div class="resource-links"><a href="https://www.postman.com/lhs-1-s-team/linkagi-api/collection/8nl8r40/linkagi-api">打开 Postman 请求集合 <span>↗</span></a><a href="https://github.com/16871233/linkagi-api-starter/blob/main/openapi/linkagi.openapi.json">OpenAPI 3.1 规范 <span>↗</span></a><a href="https://github.com/16871233/linkagi-api-starter/blob/main/docs/api-401-404-429-checklist.md">401 / 404 / 429 排查清单 <span>↗</span></a><a href="https://docs.linktoagi.com/about.html#support">联系客服处理配置问题 <span>↗</span></a></div></section>
-    <section class="footer-cta"><h2>准备开始使用 LinkAGI？</h2><p>先看当前模型与计费，再创建自己的 API Key。</p><a class="button primary" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=direct_price_20260917&amp;utm_content=footer_signup">去注册 ↗</a></section>
+    <section class="footer-cta"><h2>准备开始使用 LinkAGI？</h2><p>先看当前模型与计费，再创建自己的 API Key。</p><a class="button primary" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=footer_signup">去注册 ↗</a></section>
   </main>
-  <footer class="wrap footer"><p>LinkAGI API Starter · 更新于 2026-09-17</p><p>由 LinkAGI 运营方维护。LinkAGI 是独立第三方服务，与 OpenAI、Anthropic、Google 无官方隶属关系。</p><nav aria-label="页脚"><a href="https://api.linktoagi.com/user-agreement">用户协议与退款说明</a><a href="https://api.linktoagi.com/privacy-policy">隐私与日志</a><a href="https://github.com/16871233/linkagi-api-starter">源码与反馈</a></nav></footer>
+  <footer class="wrap footer"><p>LinkAGI API Starter · 更新于 2026-09-23</p><p>由 LinkAGI 运营方维护。LinkAGI 是独立第三方服务，与 OpenAI、Anthropic、Google 无官方隶属关系。</p><nav aria-label="页脚"><a href="https://api.linktoagi.com/user-agreement">用户协议与退款说明</a><a href="https://api.linktoagi.com/privacy-policy">隐私与日志</a><a href="https://github.com/16871233/linkagi-api-starter">源码与反馈</a></nav></footer>
 </body>
 </html>
