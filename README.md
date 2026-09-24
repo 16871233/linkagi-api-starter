@@ -6,18 +6,16 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 
 [注册 LinkAGI](https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_signup) · [实时模型与价格](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_pricing) · [完整中文文档](https://docs.linktoagi.com/) · [联系客服](https://docs.linktoagi.com/about.html#support)
 
-价格会随模型、分组、上下文长度和缓存方式变化，因此仓库不保存容易过期的单价快照。请在[实时模型广场](https://api.linktoagi.com/pricing)查看当前输入、输出与缓存价格；多轮请求和重试产生的用量也需要计入。
+想先试用，可以[联系客服领取体验额度](https://docs.linktoagi.com/about.html#support)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
 
 首次使用可以按这个顺序操作：
 
-1. 注册并完成邮箱验证，在[钱包](https://api.linktoagi.com/wallet)核对实际可用余额。
+1. 注册并完成邮箱验证，联系客服领取体验额度，或在[钱包](https://api.linktoagi.com/wallet)充值。
 2. 从[模型广场](https://api.linktoagi.com/pricing)选择模型和分组，再到[API 密钥](https://api.linktoagi.com/keys)创建独立测试 Key。
 3. 按下方教程配置客户端，先发送一条短请求。
 4. 到[使用日志](https://api.linktoagi.com/usage-logs/common)核对模型、Token、状态与扣费，再决定是否继续使用。
 
-**试用说明（2026-09-22 复核）：** 注册不会自动赠送调用额度。如需试用，请先联系客服确认当前方式、可用模型与额度，到账后再调用。
-
-当前仓库记录了 Chat Completions 与 Responses 的历史成功样例；Claude Code、Gemini CLI 和其他客户端的完整流程仍需独立实测。地址与示例不代表所有模型、流式输出或工具调用已经验证。
+Chat Completions、Responses 的调用样例与各客户端进度见[验证记录](INTEGRATION_STATUS.md)。Claude Code、Gemini CLI 目前提供配置参考，完整客户端流程尚未实测。
 
 遇到错误时可查阅 [Claude Code 401](docs/claude-code-401.md)、[通用 401/404/429 清单](docs/api-401-404-429-checklist.md)，也可以下载[浏览器路由诊断工具](tools/linkagi-diagnose.html)。
 
@@ -38,7 +36,7 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 - [浏览器路由诊断工具](tools/linkagi-diagnose.html)
 - [生态接入与真实性边界](INTEGRATION_STATUS.md)
 
-这些资产默认不带 Key，也不写死会变化的模型列表。鉴权模型列表尚无最新公开成功证据；发送付费请求前应从实时模型广场复制模型名，并用低额度短效 Key 验证当前令牌分组。
+这些资产不含 API Key。导入后填入自己的 Key，并从模型广场复制当前模型名。
 
 公开 Postman 集合包含 5 个请求，覆盖模型发现、OpenAI Chat Completions、OpenAI Responses、Messages-style 与 Gemini-style `generateContent`。集合描述的是请求表面，不代表五项都已成功调用；API Key 只能保存在自己的本地环境变量中。
 
@@ -53,9 +51,9 @@ chmod +x linkagi-preflight.sh
 
 未携带 Key 时，`/v1/models`、`/v1/responses`、`/v1/messages` 和 Gemini-style 路由返回 JSON `401` 属于预期结果。它只证明请求到达鉴权层，不证明协议或客户端兼容。
 
-## Base URL 候选速查
+## Base URL 速查
 
-下表记录公开文档中的目标地址。Codex/Responses 有一次成功调用证据；Claude Code 与 Gemini CLI 尚未完成客户端实测，不能仅凭地址表宣称可用。
+按客户端选择地址；Claude Code 和 Gemini CLI 为待实测配置参考。
 
 | 工具 | Base URL | 客户端继续请求的路径 |
 | --- | --- | --- |
@@ -176,11 +174,9 @@ curl -i 'https://api.linktoagi.com/v1beta/models/gemini-3.1-pro:generateContent'
 | `429` | 并发、频率与分组限流 |
 | `5xx` / timeout | 短请求是否可用、实时号池状态、系统公告与使用日志 |
 
-## 价格与可用性边界
+## 价格与调用记录
 
-模型、号池、倍率和输入/输出价格会变化，本仓库不维护一个容易过期的“最低价”数字。请以[实时模型广场](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=ecosystem_20260908&utm_content=price_boundary)和自己的逐次使用日志为准。
-
-一次 HTTP 200 只证明当时的模型、号池、Key 和请求成功，不等于长期稳定、官方直连或模型身份鉴定。重要任务应使用固定样例测试工具调用、长上下文、结构化输出和失败模式，并准备备用路线。
+在[实时模型广场](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_pricing_details)查看分组价格，在控制台核对每次调用的用量和扣费。接入自己的项目时，先跑一条短请求，再测试需要的工具调用、流式输出或长上下文功能。
 
 ## 联系支持
 

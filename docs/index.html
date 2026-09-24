@@ -27,7 +27,7 @@
         <h1>选好模型，<br>按实际用量付费。</h1>
         <p class="lead">人民币计费，输入、输出价格公开。为不同项目创建独立 API Key，每次请求用了多少 Token、扣了多少钱，都可以在控制台查看。</p>
         <div class="actions"><a class="button primary" data-content="hero_signup" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=hero_signup">注册 LinkAGI ↗</a><a class="button" href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=hero_pricing">先看模型与价格</a></div>
-        <p class="quiet">已有账号？<a href="https://api.linktoagi.com/dashboard/overview">进入控制台</a>。选模型或接入遇到问题，可以<a href="https://docs.linktoagi.com/about.html#support">联系客服</a>。</p>
+        <p class="quiet">想先试试？<a href="https://docs.linktoagi.com/about.html#support">联系客服领取体验额度</a>。已有账号可直接<a href="https://api.linktoagi.com/dashboard/overview">进入控制台</a>。</p>
       </div>
       <aside class="intro-card" aria-label="接入顺序">
         <p class="eyebrow">开始之前，准备这四项</p>
@@ -36,13 +36,13 @@
     </section>
 
     <section id="prices" class="section">
-      <div class="section-title"><div><p class="eyebrow">模型、分组与人民币计费</p><h2>先看当前价格，再决定用哪个。</h2></div><p>价格会随模型、分组、上下文长度和缓存方式变化。<br>本页不保存价格快照。</p></div>
-      <p>模型广场显示当前可用模型、分组和计费规则。比较时分别看输入、输出与缓存价格；长上下文、多轮请求和重试都可能改变实际成本。发起调用后，可在使用日志核对本次 Token 数和实际扣费。</p>
+      <div class="section-title"><div><p class="eyebrow">模型、分组与人民币计费</p><h2>用什么模型，花多少钱，一起看。</h2></div><p>输入、输出、缓存分别列价。<br>选择分组后查看对应费用。</p></div>
+      <p>打开模型广场，搜索模型名就能查看当前分组和单价。调用之后，控制台会记录每次请求的 Token 数和扣费，方便比较不同任务的开销。</p>
       <div class="actions"><a class="button primary" href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=live_pricing">打开实时模型与价格 ↗</a><a class="button" href="#cost">按自己的 Token 数估算</a></div>
     </section>
 
     <section id="connect" class="section">
-      <div class="section-title"><div><p class="eyebrow">01 / 找到你的入口</p><h2>你准备接哪个客户端？</h2></div><p>下面是 LinkAGI 文档中的配置地址。<br>模型权限与协议功能需要用当前 Key 验证。</p></div>
+      <div class="section-title"><div><p class="eyebrow">01 / 找到你的入口</p><h2>你准备接哪个客户端？</h2></div><p>复制地址，按教程填入自己的 Key 和模型名。</p></div>
       <div class="client-grid">
         <article class="client-card"><h3>Codex / Responses</h3><p>自定义提供方使用 Responses 协议。</p><code>https://api.linktoagi.com/v1</code><div class="card-actions"><button type="button" data-copy="https://api.linktoagi.com/v1" aria-label="复制 Codex 地址">复制地址</button><a href="https://docs.linktoagi.com/codex-api.html">配置教程 ↗</a></div></article>
         <article class="client-card"><h3>OpenAI-compatible 客户端</h3><p>选择与客户端相匹配的接口类型。</p><code>https://api.linktoagi.com/v1</code><div class="card-actions"><button type="button" data-copy="https://api.linktoagi.com/v1" aria-label="复制 OpenAI-compatible 地址">复制地址</button><a href="https://docs.linktoagi.com/">查看文档 ↗</a></div></article>
@@ -50,18 +50,18 @@
         <article class="client-card"><h3>Gemini CLI</h3><p>按文档选择 API Key 认证与模型。</p><code>https://api.linktoagi.com</code><div class="card-actions"><button type="button" data-copy="https://api.linktoagi.com" aria-label="复制 Gemini CLI 地址">复制地址</button><a href="https://docs.linktoagi.com/gemini-cli-api.html">配置教程 ↗</a></div></article>
       </div>
       <p id="copy-status" class="quiet" role="status" aria-live="polite">本页不需要填写 API Key。</p>
-      <p class="note">仓库已记录 Chat Completions 和 Responses 的历史成功样例。Claude Code、Gemini CLI 的完整客户端流程仍需独立实测；上面的教程入口不代表所有功能均已验证。<a href="https://github.com/16871233/linkagi-api-starter/blob/main/INTEGRATION_STATUS.md">查看验证记录</a></p>
+      <p class="note">Claude Code、Gemini CLI 提供配置参考，完整客户端流程尚未实测。<a href="https://github.com/16871233/linkagi-api-starter/blob/main/INTEGRATION_STATUS.md">接口与客户端验证记录</a></p>
     </section>
 
     <section id="first-request" class="section">
       <div class="section-title"><div><p class="eyebrow">02 / 第一次使用</p><h2>从注册到看见调用记录</h2></div></div>
       <ol class="steps">
-        <li><h3>注册并核对余额</h3><p>完成邮箱验证后，在<a href="https://api.linktoagi.com/wallet">钱包</a>查看实际到账余额。注册账号本身不等于已有可调用额度。</p></li>
+        <li><h3>注册，准备调用额度</h3><p>完成邮箱验证，可联系客服领取体验额度，也可在<a href="https://api.linktoagi.com/wallet">钱包</a>充值。</p></li>
         <li><h3>选模型，创建 Key</h3><p>先看<a href="https://api.linktoagi.com/pricing">模型广场</a>的价格和分组，再到<a href="https://api.linktoagi.com/keys">API 密钥</a>创建测试 Key。首次使用建议设置额度与有效期。</p></li>
         <li><h3>填入客户端，发送短请求</h3><p>选择上方对应教程，填入地址、Key 和完整模型名。先让模型回复一句简短的话，暂时关闭自动循环与批量任务。</p></li>
         <li><h3>在日志里看结果</h3><p>打开<a href="https://api.linktoagi.com/usage-logs/common">使用日志</a>，按调用时间核对模型、Token、响应状态和实际扣费。再用一个小任务评估是否适合继续使用。</p></li>
       </ol>
-      <details class="notice" open><summary>可以先试用吗？</summary><p>注册不会自动赠送调用额度。需要试用安排，请<a href="https://docs.linktoagi.com/about.html#support">联系客服</a>确认当前方式、可用模型与额度，余额到账后再调用。</p></details>
+      <p class="notice">接入遇到问题？<a href="https://docs.linktoagi.com/about.html#support">联系客服</a>，说明使用的客户端、模型和错误提示即可。</p>
     </section>
 
     <section id="cost" class="section calculator">
@@ -78,6 +78,6 @@
     <section class="section resources"><div><p class="eyebrow">04 / 开发者资料</p><h2>需要直接调接口？</h2><p>可以导入 Postman 集合，也可以下载请求规范。示例里的 Key 和模型名需要替换成你自己的配置。</p></div><div class="resource-links"><a href="https://www.postman.com/lhs-1-s-team/linkagi-api/collection/8nl8r40/linkagi-api">打开 Postman 请求集合 <span>↗</span></a><a href="https://github.com/16871233/linkagi-api-starter/blob/main/openapi/linkagi.openapi.json">OpenAPI 3.1 规范 <span>↗</span></a><a href="https://github.com/16871233/linkagi-api-starter/blob/main/docs/api-401-404-429-checklist.md">401 / 404 / 429 排查清单 <span>↗</span></a><a href="https://docs.linktoagi.com/about.html#support">联系客服处理配置问题 <span>↗</span></a></div></section>
     <section class="footer-cta"><h2>准备开始使用 LinkAGI？</h2><p>先看当前模型与计费，再创建自己的 API Key。</p><a class="button primary" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=footer_signup">去注册 ↗</a></section>
   </main>
-  <footer class="wrap footer"><p>LinkAGI API Starter · 更新于 2026-09-23</p><p>由 LinkAGI 运营方维护。LinkAGI 是独立第三方服务，与 OpenAI、Anthropic、Google 无官方隶属关系。</p><nav aria-label="页脚"><a href="https://api.linktoagi.com/user-agreement">用户协议与退款说明</a><a href="https://api.linktoagi.com/privacy-policy">隐私与日志</a><a href="https://github.com/16871233/linkagi-api-starter">源码与反馈</a></nav></footer>
+  <footer class="wrap footer"><p>LinkAGI API Starter · 更新于 2026-09-24 · 由 LinkAGI 运营方维护，提供第三方 API 服务。</p><nav aria-label="页脚"><a href="https://api.linktoagi.com/user-agreement">用户协议与退款说明</a><a href="https://api.linktoagi.com/privacy-policy">隐私与日志</a><a href="https://github.com/16871233/linkagi-api-starter">源码与反馈</a></nav></footer>
 </body>
 </html>
