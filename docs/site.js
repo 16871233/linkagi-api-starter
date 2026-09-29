@@ -1,5 +1,35 @@
 'use strict';
 
+// Keep a campaign's source when a visitor continues to signup or pricing.
+const incomingCampaign = new URLSearchParams(window.location.search);
+document.querySelectorAll('a[href]').forEach((anchor) => {
+  const destination = new URL(anchor.href, window.location.href);
+  if (destination.origin !== 'https://api.linktoagi.com' || !destination.searchParams.has('utm_campaign')) return;
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach((key) => {
+    const value = incomingCampaign.get(key);
+    if (value && value.length <= 100) destination.searchParams.set(key, value);
+  });
+  anchor.href = destination.href;
+});
+
+document.querySelectorAll('[data-preset]').forEach((button) => {
+  button.addEventListener('click', () => {
+    document.querySelector('#input-price').value = button.dataset.inputPrice;
+    document.querySelector('#output-price').value = button.dataset.outputPrice;
+    document.querySelector('#selected-preset').textContent = '已选：' + button.dataset.preset + '（2026-09-29 价格）';
+    document.querySelector('#cost-result').textContent = '已带入单价，请填写 Token 数后计算';
+    document.querySelector('#cost').scrollIntoView({ block: 'start' });
+    document.querySelector('#input-tokens').focus({ preventScroll: true });
+  });
+});
+
+['input-price', 'output-price'].forEach((id) => {
+  document.getElementById(id).addEventListener('input', () => {
+    document.querySelector('#selected-preset').textContent = '正在使用手动填写的单价。';
+    document.querySelector('#cost-result').textContent = '单价已修改，请重新计算';
+  });
+});
+
 document.querySelectorAll('[data-copy]').forEach((button) => {
   button.addEventListener('click', async () => {
     const status = document.querySelector('#copy-status');

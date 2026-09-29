@@ -1,0 +1,9 @@
+.price-table-wrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:10px;background:#fff}
+.price-table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:14px}
+.price-table caption{text-align:left;padding:16px 20px;color:var(--muted);font-size:12px;white-space:normal}
+.price-table th,.price-table td{padding:15px 20px;text-align:left;border-top:1px solid var(--line)}
+.price-table thead{background:#eaf0e6}
+.price-table tbody th{font-family:ui-monospace,SFMono-Regular,monospace;font-weight:600}
+.price-table button{background:#fff;border:1px solid #b9c9bf;color:var(--green);border-radius:5px;padding:6px 12px;font-size:13px}
+.price-table button:hover{background:#e5eee5}
+.price-table-wrap:focus-visible{outline:3px solid #bb853d;outline-offset:4px}
