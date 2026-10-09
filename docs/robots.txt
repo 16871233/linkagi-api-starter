@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://16871233.github.io/linkagi-api-starter/sitemap.xml
