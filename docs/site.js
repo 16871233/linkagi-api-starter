@@ -16,7 +16,7 @@ document.querySelectorAll('[data-preset]').forEach((button) => {
   button.addEventListener('click', () => {
     document.querySelector('#input-price').value = button.dataset.inputPrice;
     document.querySelector('#output-price').value = button.dataset.outputPrice;
-    document.querySelector('#selected-preset').textContent = '已选：' + button.dataset.preset + '（2026-09-29 价格）';
+    document.querySelector('#selected-preset').textContent = '已选：' + button.dataset.preset + '（2026-10-09 价格）';
     document.querySelector('#cost-result').textContent = '已带入单价，请填写 Token 数后计算';
     document.querySelector('#cost').scrollIntoView({ block: 'start' });
     document.querySelector('#input-tokens').focus({ preventScroll: true });
