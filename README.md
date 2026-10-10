@@ -8,6 +8,8 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 
 想先试用，可以[联系客服领取体验额度](https://docs.linktoagi.com/about.html#support)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
 
+[在线接入页的体验入口](https://16871233.github.io/linkagi-api-starter/#trial)也提供公开客服微信二维码与邮箱，可直接发送用户 ID、模型和客户端申请体验额度。
+
 GPT-6.1 Sol 已加入[分组价格表与费用计算器](https://16871233.github.io/linkagi-api-starter/#prices)，可对照 Sale、Plus、Pro 的输入、输出和缓存单价。联系客服领取体验额度时，附上用户 ID、想试的模型和客户端，方便安排。
 
 **选分组时注意：** 模型广场标明 Sale 号池只接 Codex；自定义脚本及其他 OpenAI-compatible 客户端请选择标注“可外接”的 Plus 或 Pro 号池，并核对模型的接口类型。

@@ -10,6 +10,7 @@ Users can create separate API keys for projects, select a model and group, and i
 - [Sign up](https://api.linktoagi.com/sign-up): Create an account.
 - [Models and pricing](https://api.linktoagi.com/pricing): Current models, groups and prices.
 - [Support](https://docs.linktoagi.com/about.html#support): Customer support and trial requests.
+- [Trial contact guide](https://16871233.github.io/linkagi-api-starter/#trial): Public support QR code, email and the information needed for a trial request.
 
 ## Integration resources
 

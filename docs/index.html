@@ -23,6 +23,7 @@
   </script>
   <link rel="stylesheet" href="site.css?v=20261009">
   <link rel="stylesheet" href="prices.css?v=20261009">
+  <link rel="stylesheet" href="trial.css?v=20261010">
   <script src="site.js?v=20261010" defer></script>
 </head>
 <body>
@@ -38,7 +39,7 @@
         <h1>选好模型，<br>按实际用量付费。</h1>
         <p class="lead">人民币计费，输入、输出价格公开。为不同项目创建独立 API Key，每次请求用了多少 Token、扣了多少钱，都可以在控制台查看。</p>
         <div class="actions"><a class="button primary" data-content="hero_signup" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=hero_signup">注册 LinkAGI ↗</a><a class="button" href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=hero_pricing">先看模型与价格</a></div>
-        <p class="quiet">想先试试？注册后<a href="https://docs.linktoagi.com/about.html#support">联系客服领取体验额度</a>，附上用户 ID 和想试的模型即可。已有账号可直接<a href="https://api.linktoagi.com/dashboard/overview">进入控制台</a>。</p>
+        <p class="quiet">想先试试？注册后<a href="#trial">联系客服领取体验额度</a>，附上用户 ID 和想试的模型即可。已有账号可直接<a href="https://api.linktoagi.com/dashboard/overview">进入控制台</a>。</p>
       </div>
       <aside class="intro-card" aria-label="接入顺序">
         <p class="eyebrow">开始之前，准备这四项</p>
@@ -80,15 +81,28 @@
       <p class="note">Claude Code、Gemini CLI 提供配置参考，完整客户端流程尚未实测。<a href="https://github.com/16871233/linkagi-api-starter/blob/main/INTEGRATION_STATUS.md">接口与客户端验证记录</a></p>
     </section>
 
+    <section id="trial" class="section">
+      <div class="section-title"><div><p class="eyebrow">体验额度与接入支持</p><h2>想试哪个模型，直接告诉客服。</h2></div></div>
+      <div class="trial-panel">
+        <div>
+          <p>先<a href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=trial_signup">注册并完成邮箱验证</a>，再用微信添加客服，发送用户 ID、想试的模型和准备使用的客户端。</p>
+          <blockquote>“我的用户 ID 是 ___，想试 ___ 模型，准备接入 ___ 客户端，请帮我安排体验额度。”</blockquote>
+          <p>收到额度后，先发一条短请求，再到使用日志核对结果。配置遇到问题时附上错误提示即可，不要发送完整 API Key。</p>
+          <div class="actions"><a class="button primary" href="assets/customer-service-wechat.png" target="_blank" rel="noopener">打开客服二维码</a><a class="button" href="mailto:linktoagi@163.com">邮件联系客服</a></div>
+          <p class="quiet">联系邮箱：linktoagi@163.com。二维码与邮箱来自 LinkAGI 的<a href="https://docs.linktoagi.com/about.html#support">公开客服页</a>。</p>
+        </div>
+        <figure><a href="assets/customer-service-wechat.png" target="_blank" rel="noopener"><img src="assets/customer-service-wechat.png" width="365" height="346" alt="LinkAGI 客服微信二维码" loading="lazy"></a><figcaption>微信扫一扫添加客服<br>手机上可打开原图后保存识别</figcaption></figure>
+      </div>
+    </section>
+
     <section id="first-request" class="section">
       <div class="section-title"><div><p class="eyebrow">02 / 第一次使用</p><h2>从注册到看见调用记录</h2></div></div>
       <ol class="steps">
-        <li><h3>注册，准备调用额度</h3><p>完成邮箱验证，可联系客服领取体验额度，也可在<a href="https://api.linktoagi.com/wallet">钱包</a>充值。</p></li>
+        <li><h3>注册，准备调用额度</h3><p>完成邮箱验证，可<a href="#trial">联系客服领取体验额度</a>，也可在<a href="https://api.linktoagi.com/wallet">钱包</a>充值。</p></li>
         <li><h3>选模型，创建 Key</h3><p>先看<a href="https://api.linktoagi.com/pricing">模型广场</a>的价格、分组和客户端限制，再到<a href="https://api.linktoagi.com/keys">API 密钥</a>创建对应分组的测试 Key。首次使用建议设置额度与有效期。</p></li>
         <li><h3>填入客户端，发送短请求</h3><p>选择上方对应教程，填入地址、Key 和完整模型名。先让模型回复一句简短的话，暂时关闭自动循环与批量任务。</p></li>
         <li><h3>在日志里看结果</h3><p>打开<a href="https://api.linktoagi.com/usage-logs/common">使用日志</a>，按调用时间核对模型、Token、响应状态和实际扣费。再用一个小任务评估是否适合继续使用。</p></li>
       </ol>
-      <p class="notice">联系<a href="https://docs.linktoagi.com/about.html#support">客服</a>时可以这样说：“我的用户 ID 是 ___，想试 ___ 模型，准备接入 ___ 客户端，请帮我安排体验额度。”接入遇到问题再附上错误提示，方便定位。</p>
     </section>
 
     <section id="cost" class="section calculator">

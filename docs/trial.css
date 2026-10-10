@@ -1,0 +1,26 @@
+.trial-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 36px;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  align-items: center;
+}
+.trial-panel p { font-size: 14px; }
+.trial-panel blockquote {
+  margin: 20px 0;
+  padding: 14px 18px;
+  border-left: 3px solid var(--green);
+  background: #f1f5ef;
+  font-size: 14px;
+}
+.trial-panel .quiet { font-size: 12px; overflow-wrap: anywhere; }
+.trial-panel figure { margin: 0; text-align: center; }
+.trial-panel img { display: block; width: 100%; height: auto; }
+.trial-panel figcaption { margin-top: 12px; color: var(--muted); font-size: 12px; }
+@media (max-width: 760px) {
+  .trial-panel { grid-template-columns: 1fr; gap: 24px; padding: 20px; }
+  .trial-panel figure { width: min(250px, 100%); justify-self: center; }
+}
