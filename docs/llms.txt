@@ -18,4 +18,4 @@ Users can create separate API keys for projects, select a model and group, and i
 - [OpenAPI specification](https://raw.githubusercontent.com/16871233/linkagi-api-starter/main/openapi/linkagi.openapi.json): Starter request schema.
 - [Integration status](https://github.com/16871233/linkagi-api-starter/blob/main/INTEGRATION_STATUS.md): Scope and evidence of completed interface tests.
 
-The OpenAI-compatible base URL is `https://api.linktoagi.com/v1`. An account API key and calling balance are required. Never send API keys to this static documentation site. LinkAGI is an independent third-party service.
+The OpenAI-compatible base URL is `https://api.linktoagi.com/v1`. The public model marketplace restricts the Codex Sale group to Codex; custom scripts and other OpenAI-compatible clients should select a Plus or Pro group labeled for external clients and check the model's endpoint type. An account API key and calling balance are required. Never send API keys to this static documentation site. LinkAGI is an independent third-party service.

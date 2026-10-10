@@ -10,6 +10,8 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 
 GPT-6.1 Sol 已加入[分组价格表与费用计算器](https://16871233.github.io/linkagi-api-starter/#prices)，可对照 Sale、Plus、Pro 的输入、输出和缓存单价。联系客服领取体验额度时，附上用户 ID、想试的模型和客户端，方便安排。
 
+**选分组时注意：** 模型广场标明 Sale 号池只接 Codex；自定义脚本及其他 OpenAI-compatible 客户端请选择标注“可外接”的 Plus 或 Pro 号池，并核对模型的接口类型。
+
 首次使用可以按这个顺序操作：
 
 1. 注册并完成邮箱验证，联系客服领取体验额度，或在[钱包](https://api.linktoagi.com/wallet)充值。

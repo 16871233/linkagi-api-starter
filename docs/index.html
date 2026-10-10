@@ -23,7 +23,7 @@
   </script>
   <link rel="stylesheet" href="site.css?v=20261009">
   <link rel="stylesheet" href="prices.css?v=20261009">
-  <script src="site.js?v=20261009" defer></script>
+  <script src="site.js?v=20261010" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -51,20 +51,20 @@
       <p>GPT-6.1 Sol 已加入价格表。先看几款常用模型的分组价格。点“按此估算”，输入、输出单价会自动填入下方计算器；再填自己的 Token 数，就能比较任务开销。</p>
       <div class="price-table-wrap" role="region" aria-label="模型分组价格表，可横向滚动" tabindex="0">
         <table class="price-table">
-          <caption>人民币 / 百万 Token，已计入分组倍率。核对日期：2026-10-09。</caption>
+          <caption>人民币 / 百万 Token，已计入分组倍率。核对日期：2026-10-10。</caption>
           <thead><tr><th scope="col">模型</th><th scope="col">分组</th><th scope="col">输入</th><th scope="col">输出</th><th scope="col">缓存输入</th><th scope="col">费用估算</th></tr></thead>
           <tbody>
-            <tr><th scope="row">gpt-6.1-sol</th><td>Codex · Sale 号池</td><td>¥0.30</td><td>¥1.50</td><td>¥0.015</td><td><button type="button" data-preset="gpt-6.1-sol · Codex Sale" data-input-price="0.30" data-output-price="1.50" aria-label="按 gpt-6.1-sol Sale 价格估算">按此估算</button></td></tr>
+            <tr><th scope="row">gpt-6.1-sol</th><td>Codex · Sale 号池（只接 Codex）</td><td>¥0.30</td><td>¥1.50</td><td>¥0.015</td><td><button type="button" data-preset="gpt-6.1-sol · Codex Sale（只接 Codex）" data-input-price="0.30" data-output-price="1.50" aria-label="按 gpt-6.1-sol Sale 价格估算">按此估算</button></td></tr>
             <tr><th scope="row">gpt-6.1-sol</th><td>Codex · Plus 号池</td><td>¥0.40</td><td>¥2.00</td><td>¥0.020</td><td><button type="button" data-preset="gpt-6.1-sol · Codex Plus" data-input-price="0.40" data-output-price="2.00" aria-label="按 gpt-6.1-sol Plus 价格估算">按此估算</button></td></tr>
             <tr><th scope="row">gpt-6.1-sol</th><td>Codex · Pro 号池</td><td>¥0.60</td><td>¥3.00</td><td>¥0.030</td><td><button type="button" data-preset="gpt-6.1-sol · Codex Pro" data-input-price="0.60" data-output-price="3.00" aria-label="按 gpt-6.1-sol Pro 价格估算">按此估算</button></td></tr>
-            <tr><th scope="row">gpt-6-sol</th><td>Codex · Sale 号池</td><td>¥0.30</td><td>¥1.50</td><td>¥0.03</td><td><button type="button" data-preset="gpt-6-sol · Codex Sale" data-input-price="0.3" data-output-price="1.5" aria-label="按 gpt-6-sol Sale 价格估算">按此估算</button></td></tr>
+            <tr><th scope="row">gpt-6-sol</th><td>Codex · Sale 号池（只接 Codex）</td><td>¥0.30</td><td>¥1.50</td><td>¥0.03</td><td><button type="button" data-preset="gpt-6-sol · Codex Sale（只接 Codex）" data-input-price="0.3" data-output-price="1.5" aria-label="按 gpt-6-sol Sale 价格估算">按此估算</button></td></tr>
             <tr><th scope="row">gpt-6-sol</th><td>Codex · Plus 号池</td><td>¥0.40</td><td>¥2.00</td><td>¥0.04</td><td><button type="button" data-preset="gpt-6-sol · Codex Plus" data-input-price="0.4" data-output-price="2" aria-label="按 gpt-6-sol Plus 价格估算">按此估算</button></td></tr>
             <tr><th scope="row">gpt-6-sol</th><td>Codex · Pro 号池</td><td>¥0.60</td><td>¥3.00</td><td>¥0.06</td><td><button type="button" data-preset="gpt-6-sol · Codex Pro" data-input-price="0.6" data-output-price="3" aria-label="按 gpt-6-sol Pro 价格估算">按此估算</button></td></tr>
             <tr><th scope="row">glm-5.3-flash</th><td>GLM</td><td>¥0.32</td><td>¥1.12</td><td>¥0.092</td><td><button type="button" data-preset="glm-5.3-flash · GLM" data-input-price="0.32" data-output-price="1.12" aria-label="按 glm-5.3-flash 价格估算">按此估算</button></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="quiet">完整模型及当前报价见模型广场，实际用量与扣费可在控制台逐次查看。</p>
+      <p class="quiet">Sale 号池只接 Codex。接自定义脚本或其他 OpenAI-compatible 客户端，请选择标注“可外接”的 Plus 或 Pro 号池，并核对模型的接口类型。完整模型及当前报价见模型广场，实际用量与扣费可在控制台逐次查看。</p>
       <div class="actions"><a class="button primary" href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=live_pricing">打开实时模型与价格 ↗</a><a class="button" href="#cost">按自己的 Token 数估算</a></div>
     </section>
 
@@ -84,7 +84,7 @@
       <div class="section-title"><div><p class="eyebrow">02 / 第一次使用</p><h2>从注册到看见调用记录</h2></div></div>
       <ol class="steps">
         <li><h3>注册，准备调用额度</h3><p>完成邮箱验证，可联系客服领取体验额度，也可在<a href="https://api.linktoagi.com/wallet">钱包</a>充值。</p></li>
-        <li><h3>选模型，创建 Key</h3><p>先看<a href="https://api.linktoagi.com/pricing">模型广场</a>的价格和分组，再到<a href="https://api.linktoagi.com/keys">API 密钥</a>创建测试 Key。首次使用建议设置额度与有效期。</p></li>
+        <li><h3>选模型，创建 Key</h3><p>先看<a href="https://api.linktoagi.com/pricing">模型广场</a>的价格、分组和客户端限制，再到<a href="https://api.linktoagi.com/keys">API 密钥</a>创建对应分组的测试 Key。首次使用建议设置额度与有效期。</p></li>
         <li><h3>填入客户端，发送短请求</h3><p>选择上方对应教程，填入地址、Key 和完整模型名。先让模型回复一句简短的话，暂时关闭自动循环与批量任务。</p></li>
         <li><h3>在日志里看结果</h3><p>打开<a href="https://api.linktoagi.com/usage-logs/common">使用日志</a>，按调用时间核对模型、Token、响应状态和实际扣费。再用一个小任务评估是否适合继续使用。</p></li>
       </ol>
@@ -106,6 +106,6 @@
     <section class="section resources"><div><p class="eyebrow">04 / 开发者资料</p><h2>需要直接调接口？</h2><p>可以导入 Postman 集合，也可以下载请求规范。示例里的 Key 和模型名需要替换成你自己的配置。</p></div><div class="resource-links"><a href="https://www.postman.com/lhs-1-s-team/linkagi-api/collection/8nl8r40/linkagi-api">打开 Postman 请求集合 <span>↗</span></a><a href="https://github.com/16871233/linkagi-api-starter/blob/main/openapi/linkagi.openapi.json">OpenAPI 3.1 规范 <span>↗</span></a><a href="https://github.com/16871233/linkagi-api-starter/blob/main/docs/api-401-404-429-checklist.md">401 / 404 / 429 排查清单 <span>↗</span></a><a href="https://docs.linktoagi.com/about.html#support">联系客服处理配置问题 <span>↗</span></a></div></section>
     <section class="footer-cta"><h2>准备开始使用 LinkAGI？</h2><p>先看当前模型与计费，再创建自己的 API Key。</p><a class="button primary" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=organic_entry_20260923&amp;utm_content=footer_signup">去注册 ↗</a></section>
   </main>
-  <footer class="wrap footer"><p>LinkAGI API Starter · 更新于 2026-10-09 · 由 LinkAGI 运营方维护，提供第三方 API 服务。</p><nav aria-label="页脚"><a href="https://api.linktoagi.com/user-agreement">用户协议与退款说明</a><a href="https://api.linktoagi.com/privacy-policy">隐私与日志</a><a href="https://github.com/16871233/linkagi-api-starter">源码与反馈</a></nav></footer>
+  <footer class="wrap footer"><p>LinkAGI API Starter · 更新于 2026-10-10 · 由 LinkAGI 运营方维护，提供第三方 API 服务。</p><nav aria-label="页脚"><a href="https://api.linktoagi.com/user-agreement">用户协议与退款说明</a><a href="https://api.linktoagi.com/privacy-policy">隐私与日志</a><a href="https://github.com/16871233/linkagi-api-starter">源码与反馈</a></nav></footer>
 </body>
 </html>
