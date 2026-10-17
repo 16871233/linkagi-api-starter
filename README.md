@@ -8,7 +8,9 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 
 想先试用，可以[联系客服领取体验额度](https://docs.linktoagi.com/about.html#support)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
 
-QQ 交流群：**342205412**。[查看群二维码与客服入口](https://16871233.github.io/linkagi-api-starter/#trial)。
+QQ 交流群：**342205412** · [点击加群](https://qm.qq.com/q/E968hOM5Ka) · [群二维码与客服入口](https://docs.linktoagi.com/about.html#qq-community)。
+
+[<img src="docs/assets/qq-group.jpg" alt="LinkAGI QQ 交流群 342205412" width="200">](https://qm.qq.com/q/E968hOM5Ka)
 
 GPT Plus 倍率已降至 **0.18**，Pro 降至 **0.25**。GPT-6.1 Sol 的标准短上下文档（≤272k）已更新到[分组价格表与费用计算器](https://16871233.github.io/linkagi-api-starter/#prices)，长上下文及其他服务等级请查看实时价格。
 
