@@ -2,7 +2,7 @@
 
 > LinkAGI is an operator-maintained, Chinese-language AI API relay with CNY usage-based billing. This site provides its API starter resources and setup guide.
 
-Users can create separate API keys for projects, select a model and group, and inspect per-request token usage and charges. Current model availability and pricing are published in the model marketplace. Trial credit is available through customer support.
+Users can create separate API keys for projects, select a model and group, and inspect per-request token usage and charges. Current model availability and pricing are published in the model marketplace. Join QQ group 342205412 to claim CNY 3 in trial credit.
 
 ## Product and account
 
