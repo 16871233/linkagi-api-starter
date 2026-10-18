@@ -1,6 +1,6 @@
 # Integration status
 
-Original asset audit: 2026-08-04 CST. Latest channel review: 2026-09-20 CST. Dates in each row are the relevant verification dates.
+Original asset audit: 2026-08-04 CST. Latest targeted channel review: 2026-10-18 CST. Dates in each row are the relevant verification dates.
 
 | Asset or channel | Current state | Evidence boundary |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ Original asset audit: 2026-08-04 CST. Latest channel review: 2026-09-20 CST. Dat
 | CLIRank | Submission `sub-1785853295012-zpbnd3` returned HTTP 201 | Pending review; no public listing verified |
 | FindAPI | Previously recorded as submitted after human verification | No public LinkAGI listing verified; submission is not evidence of acceptance |
 | getcheapai registry | [PR #2](https://github.com/getcheapai/ai-proxy-registry/pull/2) still open on 2026-09-20 | Not merged; a public website listing is not verified |
-| AI API 公益站与 Token 中转站导航 | [PR #9](https://github.com/1sh1ro/ai-api-zhongzhuan/pull/9) merged 2026-09-18; updated signup URL and dated pricing verified in [live site data](https://1sh1ro.github.io/ai-api-zhongzhuan/data/sites.json) on 2026-09-20 | This updates an existing entry; it is not a new listing. Referral conversions are not verified |
+| AI API 公益站与 Token 中转站导航 | [PR #28](https://github.com/1sh1ro/ai-api-zhongzhuan/pull/28) merged 2026-10-17; current README includes updated GPT groups, pricing and QQ trial information, checked 2026-10-18 | This updates an existing entry; it is not a new listing. Referral conversions are not verified |
 | mn-api/awesome-ai-proxy | [Issue #52](https://github.com/mn-api/awesome-ai-proxy/issues/52) still open on 2026-09-20 | Open application; not added to the directory yet |
 | howardpen9/awesome-ai-api-proxy | [Issue #93](https://github.com/howardpen9/awesome-ai-api-proxy/issues/93) submitted through the required browser form on 2026-09-24; `new-provider` label present and OPEN, replacing the form-rejected #83 | Pending maintainer review; not a listed entry |
 | ProxyCC | Application submitted through the [directory's intake](https://proxycc.cc/submit) on 2026-09-20; questionnaire completion confirmed | Pending review; no public listing verified |
