@@ -16,6 +16,8 @@ Codex Plus has a group multiplier of 0.18 and Pro 0.25. GPT prices in the starte
 
 ## Integration resources
 
+- [API error guide](https://16871233.github.io/linkagi-api-starter/api-errors.html): Troubleshoot authentication, model routing, rate limits and timeouts; includes client setup and trial links.
+
 - [Setup and token-cost calculator](https://16871233.github.io/linkagi-api-starter/): Client-specific base URLs, a price table and a local calculator.
 - [GPT group selection](https://16871233.github.io/linkagi-api-starter/gpt-groups.html): Sale 0.15 is Codex-only; Plus 0.18 and Pro 0.25 allow external clients. Includes GPT-6.1 Sol unit prices and trial entry.
 - [Chinese documentation](https://docs.linktoagi.com/): Client configuration instructions.

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API 返回 401、403、404、429 怎么解决？｜LinkAGI 接入排错</title>
+  <meta name="description" content="API Key 无效、模型不存在、限流和超时怎么查？按错误码检查地址、模型接口、分组与调用日志。附 LinkAGI 配置入口和 3 元体验额度。">
+  <link rel="canonical" href="https://16871233.github.io/linkagi-api-starter/api-errors.html">
+  <meta property="og:title" content="API 调用报错？按错误码找到下一步">
+  <meta property="og:description" content="401 查 Key，404 查地址与模型，429 查限流。LinkAGI 接入排错与试用入口。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://16871233.github.io/linkagi-api-starter/api-errors.html">
+  <meta name="theme-color" content="#134d43">
+  <link rel="stylesheet" href="site.css?v=20261009">
+  <link rel="stylesheet" href="trial.css?v=20261016">
+  <link rel="stylesheet" href="api-errors.css?v=20261020">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="wrap header">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">L</span> LinkAGI <span class="subbrand">/ API Starter</span></a>
+    <nav aria-label="主导航"><a href="gpt-groups.html">选分组</a><a href="#trial">领 3 元体验</a></nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="error-intro">
+      <p class="eyebrow">API · 接入排错</p>
+      <h1>调用报错，<br>先查这几处。</h1>
+      <p class="lead">保留错误正文，按下面的状态码定位。客户端只显示“请求失败”时，先到调用日志里看具体原因。</p>
+      <nav class="error-nav" aria-label="按错误码定位">
+        <a href="#error-401"><strong>401</strong><span>Key / 认证</span></a>
+        <a href="#error-403"><strong>403</strong><span>权限 / 限制</span></a>
+        <a href="#error-404"><strong>404</strong><span>地址 / 模型</span></a>
+        <a href="#error-429"><strong>429</strong><span>频率 / 并发</span></a>
+        <a href="#error-5xx"><strong>5xx</strong><span>服务 / 超时</span></a>
+      </nav>
+      <p class="quiet">不同服务对错误码的用法可能不同，优先看返回的错误正文。</p>
+    </section>
+    <section class="section error-section" id="error-401">
+      <div class="error-label"><span>401</span><h2>Key 没有通过认证</h2></div>
+      <div><p>常见提示：<code>invalid_api_key</code>、<code>Unauthorized</code>、令牌无效。</p>
+      <ol><li>确认客户端填的是 API Key，且没有多余空格或换行。</li><li>到 <a href="https://api.linktoagi.com/keys">API 密钥</a>查看 Key 是否过期、停用或已删除。</li><li>修改环境变量后重新启动客户端，确认当前会话使用的是新配置。</li></ol>
+      <p class="fix">不用把 Key 发到群里。提供错误正文和客户端名称即可开始排查。</p></div>
+    </section>
+    <section class="section error-section" id="error-403">
+      <div class="error-label"><span>403</span><h2>请求被限制</h2></div>
+      <div><p>先看错误里写的是权限、模型限制、IP 限制，还是额度不足。</p>
+      <ol><li>对照 Key 的模型范围、分组和 IP 白名单。</li><li>若明确提示额度不足，同时检查账号余额和 Key 的额度上限。</li><li>接自己的脚本或其他客户端时，GPT 选择标注“可外接”的 Plus / Pro；Sale 组只接 Codex。</li></ol>
+      <p><a href="gpt-groups.html">查看 Sale / Plus / Pro 的区别 →</a></p></div>
+    </section>
+    <section class="section error-section" id="error-404">
+      <div class="error-label"><span>404</span><h2>地址或模型没有对上</h2></div>
+      <div><p><code>model_not_found</code> 也可能以其他状态码返回。先分清是路径不存在，还是所选模型在当前接口或分组中不可用。</p>
+      <div class="route-example"><span>OpenAI 兼容 Base URL</span><code>https://api.linktoagi.com/v1</code></div>
+      <ol><li>Base URL 不要填成完整的 <code>/v1/chat/completions</code> 或 <code>/v1/responses</code> 路径，除非客户端明确要求填写完整接口地址。</li><li>查看最终请求地址，排除重复的 <code>/v1/v1/</code>。</li><li>从 <a href="https://api.linktoagi.com/pricing">模型广场</a>复制完整模型 ID，并确认它支持 Chat Completions 还是 Responses。</li></ol>
+      <p class="fix">路径返回网页 HTML 而不是 API 错误 JSON 时，优先检查域名、Base URL 和反向代理路径。</p></div>
+    </section>
+    <section class="section error-section" id="error-429">
+      <div class="error-label"><span>429</span><h2>触发频率或并发限制</h2></div>
+      <div><p>也可能是当前上游线路暂时拥挤。根据错误正文区分个人限额和线路容量。</p>
+      <ol><li>停止连续重试，把并发降到 1，用一条短请求复查。</li><li>响应有 <code>Retry-After</code> 时，按指定时间等待；没有时增加重试间隔。</li><li>仍然失败，记录模型、分组和发生时间，联系支持核对线路状态。</li></ol>
+      <p class="fix">不要把 429 直接当作余额不足，也不要只凭这一条错误反复充值。</p></div>
+    </section>
+    <section class="section error-section" id="error-5xx">
+      <div class="error-label"><span>5xx</span><h2>服务错误或超时</h2></div>
+      <div><p>先判断只影响某个模型，还是所有请求都失败。</p>
+      <ol><li>使用同一模型测试一条短文本，暂时去掉图片、工具调用和超长历史。</li><li>查看 <a href="https://api.linktoagi.com/usage-logs/common">使用日志</a>中的状态、Token 和扣费，再决定是否重试。</li><li>有请求 ID 时保留请求 ID；没有时记录发生时间，便于客服定位。</li></ol>
+      <p class="fix">客户端超时不一定代表服务端没有处理。先核对日志，避免重复执行任务。</p></div>
+    </section>
+    <section class="section">
+      <h2>第一次接入，先跑通一条短请求</h2>
+      <p>选模型和分组 → 创建 Key → 按客户端教程配置 → 在使用日志确认结果。</p>
+      <div class="actions"><a class="button primary" href="./#connect">打开客户端配置</a><a class="button" href="https://docs.linktoagi.com/">完整接入文档 ↗</a><a class="button" href="https://api.linktoagi.com/usage-logs/common">查看使用日志 ↗</a></div>
+    </section>
+    <section id="trial" class="section">
+      <div class="trial-panel"><div><p class="eyebrow">LinkAGI · API 中转</p><h2>进群可领 3 元体验额度</h2><p>支持 GPT / Codex、Claude、Gemini 等模型，人民币按用量计费。QQ群 <strong>342205412</strong>，接入问题也可以在群里交流。</p><div class="actions"><a class="button primary" href="https://api.linktoagi.com/sign-up?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=api_errors_20261020&amp;utm_content=trial_signup">注册 LinkAGI ↗</a><a class="button" href="https://qm.qq.com/q/E968hOM5Ka">加入 QQ 群</a></div><p><a href="https://api.linktoagi.com/pricing?utm_source=github_pages&amp;utm_medium=documentation&amp;utm_campaign=api_errors_20261020&amp;utm_content=pricing">查看当前模型和价格 →</a></p></div><figure><a href="https://qm.qq.com/q/E968hOM5Ka"><img src="assets/qq-group.jpg" width="1050" height="1350" alt="LinkAGI QQ 群二维码，群号 342205412" loading="lazy"></a><figcaption>LinkAGI 交流群 · 342205412</figcaption></figure></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><p>LinkAGI 运营方维护 · 更新于 2026-10-20</p><nav aria-label="页脚"><a href="./">返回接入导航</a><a href="gpt-groups.html">GPT 分组与价格</a><a href="https://docs.linktoagi.com/about.html#qq-community">客服与交流群</a></nav></footer>
+</body>
+</html>

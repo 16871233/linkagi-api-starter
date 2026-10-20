@@ -27,7 +27,7 @@ GPT Plus 倍率已降至 **0.18**，Pro 降至 **0.25**。GPT-6.1 Sol 的标准�
 
 Chat Completions、Responses 的调用样例与各客户端进度见[验证记录](INTEGRATION_STATUS.md)。Claude Code、Gemini CLI 目前提供配置参考，完整客户端流程尚未实测。
 
-遇到错误时可查阅 [Claude Code 401](docs/claude-code-401.md)、[通用 401/404/429 清单](docs/api-401-404-429-checklist.md)，也可以下载[浏览器路由诊断工具](tools/linkagi-diagnose.html)。
+遇到错误时可查阅 [Claude Code 401](docs/claude-code-401.md)、[401 / 403 / 404 / 429 在线排错指南](https://16871233.github.io/linkagi-api-starter/api-errors.html)，也可以下载[浏览器路由诊断工具](tools/linkagi-diagnose.html)。
 
 > 不要把真实 API Key 提交到 Git 仓库。下面所有 `sk-...` 都是占位符。
 
