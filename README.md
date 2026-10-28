@@ -18,6 +18,8 @@ GPT Plus 倍率已降至 **0.18**，Pro 降至 **0.25**。GPT-6.1 Sol 的标准�
 
 [Sale / Plus / Pro 怎么选？查看分组说明与实际费用对比 →](https://16871233.github.io/linkagi-api-starter/gpt-groups.html)
 
+**已经装好 Codex CLI？** [下载接入配置包](https://16871233.github.io/linkagi-api-starter/downloads/linkagi-codex-starter-20261028.zip)，或先看[配置说明](integrations/codex/)。适用于 CLI 0.134.0 及以上，使用独立 profile，保留原来的默认配置；包含 macOS / Linux 和 Windows 的启动方法。
+
 首次使用可以按这个顺序操作：
 
 1. 注册并完成邮箱验证，联系客服领取体验额度，或在[钱包](https://api.linktoagi.com/wallet)充值。

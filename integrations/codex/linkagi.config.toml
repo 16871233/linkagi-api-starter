@@ -1,0 +1,10 @@
+# Codex CLI 0.134.0+ profile. Save as ~/.codex/linkagi.config.toml.
+# Select this provider with: codex --profile linkagi
+model = "gpt-6.1-sol"
+model_provider = "linkagi"
+
+[model_providers.linkagi]
+name = "LinkAGI"
+base_url = "https://api.linktoagi.com/v1"
+wire_api = "responses"
+env_key = "LINKAGI_API_KEY"
