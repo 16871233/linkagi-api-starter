@@ -6,17 +6,19 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 
 [注册 LinkAGI](https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_signup) · [实时模型与价格](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_pricing) · [完整中文文档](https://docs.linktoagi.com/) · [联系客服](https://docs.linktoagi.com/about.html#support)
 
-**进群可领取 3 元体验额度**：[加入 QQ 群 342205412](https://qm.qq.com/q/E968hOM5Ka)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
+**加入交流群并在[活动帖](https://www.v2ex.com/t/1254212)留言，可领取 5 元体验额度**：[加入 QQ 群 342205412](https://qm.qq.com/q/E968hOM5Ka)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
 
 QQ 交流群：**342205412** · [点击加群](https://qm.qq.com/q/E968hOM5Ka) · [群二维码与客服入口](https://docs.linktoagi.com/about.html#qq-community)。
 
 [<img src="docs/assets/qq-group.jpg" alt="LinkAGI QQ 交流群 342205412" width="200">](https://qm.qq.com/q/E968hOM5Ka)
 
-GPT Plus 倍率已降至 **0.18**，Pro 降至 **0.25**。GPT-6.1 Sol 的标准短上下文档（≤272k）已更新到[分组价格表与费用计算器](https://16871233.github.io/linkagi-api-starter/#prices)，长上下文及其他服务等级请查看实时价格。
+Codex 分组倍率：**Sale 0.10 / Plus 0.15 / Pro 0.25**。各模型输入、输出、缓存和服务等级价格见[实时模型广场](https://api.linktoagi.com/pricing)。
 
-**选分组时注意：** 模型广场标明 Sale 号池只接 Codex；自定义脚本及其他 OpenAI-compatible 客户端请选择标注“可外接”的 Plus 或 Pro 号池，并核对模型的接口类型。
+**消费抽奖已上线**：每消费满 20 元获得 1 次抽奖机会，最高可得 100 元站内额度，入口在控制台[钱包](https://api.linktoagi.com/wallet)。
 
-[Sale / Plus / Pro 怎么选？查看分组说明与实际费用对比 →](https://16871233.github.io/linkagi-api-starter/gpt-groups.html)
+**选分组时注意：** 按客户端与模型所需接口选择分组，当前限制以模型广场和站内公告为准。
+
+[Sale / Plus / Pro 怎么选？查看分组说明与实时价格入口 →](https://16871233.github.io/linkagi-api-starter/gpt-groups.html)
 
 **已经装好 Codex CLI？** [下载接入配置包](https://16871233.github.io/linkagi-api-starter/downloads/linkagi-codex-starter-20261028.zip)，或先看[配置说明](integrations/codex/)。适用于 CLI 0.134.0 及以上，使用独立 profile，保留原来的默认配置；包含 macOS / Linux 和 Windows 的启动方法。
 

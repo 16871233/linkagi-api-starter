@@ -12,17 +12,6 @@ document.querySelectorAll('a[href]').forEach((anchor) => {
   anchor.href = destination.href;
 });
 
-document.querySelectorAll('[data-preset]').forEach((button) => {
-  button.addEventListener('click', () => {
-    document.querySelector('#input-price').value = button.dataset.inputPrice;
-    document.querySelector('#output-price').value = button.dataset.outputPrice;
-    document.querySelector('#selected-preset').textContent = '已选：' + button.dataset.preset + '（2026-10-16 价格）';
-    document.querySelector('#cost-result').textContent = '已带入单价，请填写 Token 数后计算';
-    document.querySelector('#cost').scrollIntoView({ block: 'start' });
-    document.querySelector('#input-tokens').focus({ preventScroll: true });
-  });
-});
-
 ['input-price', 'output-price'].forEach((id) => {
   document.getElementById(id).addEventListener('input', () => {
     document.querySelector('#selected-preset').textContent = '正在使用手动填写的单价。';
