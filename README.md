@@ -199,3 +199,5 @@ curl -i 'https://api.linktoagi.com/v1beta/models/gemini-3.1-pro:generateContent'
 - 关于与客服：<https://docs.linktoagi.com/about.html>
 
 如果这份速查帮你定位了问题，欢迎 Star 或分享给同样在配置 Codex、Claude Code、Gemini CLI 的开发者。
+
+目录互链：[Commercial Hub](https://hub.apiops.cloud/) · 第三方 AI API 服务目录。
