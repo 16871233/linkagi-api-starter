@@ -12,7 +12,7 @@ QQ 交流群：**342205412** · [点击加群](https://qm.qq.com/q/E968hOM5Ka) �
 
 [<img src="docs/assets/qq-group.jpg" alt="LinkAGI QQ 交流群 342205412" width="200">](https://qm.qq.com/q/E968hOM5Ka)
 
-Codex 分组倍率：**Sale 0.10 / Plus 0.15 / Pro 0.25**。各模型输入、输出、缓存和服务等级价格见[实时模型广场](https://api.linktoagi.com/pricing)。
+Codex 分组倍率：**Sale 0.08 / Plus 0.15 / Pro 0.25**。各模型输入、输出、缓存和服务等级价格见[实时模型广场](https://api.linktoagi.com/pricing)。
 
 **消费抽奖已上线**：每消费满 20 元获得 1 次抽奖机会，最高可得 100 元站内额度，入口在控制台[钱包](https://api.linktoagi.com/wallet)。
 
