@@ -2,9 +2,11 @@
 
 > LinkAGI is an operator-maintained, Chinese-language AI API relay with CNY usage-based billing. This site provides its API starter resources and setup guide.
 
-Users can create separate API keys for projects, select a model and group, and inspect per-request token usage and charges. Current model availability and pricing are published in the model marketplace. Join QQ group 342205412 and comment on the promotion post at https://www.v2ex.com/t/1254212 to claim CNY 5 in API trial credit.
+Users can create separate API keys for projects, select a model and group, and inspect per-request token usage and charges. Current model availability and pricing are published in the model marketplace. Join QQ group 342205412 and comment on the promotion post at https://www.v2ex.com/t/1255536 to claim CNY 5 in API trial credit.
 
 ## Product and account
+
+- [English overview](https://16871233.github.io/linkagi-api-starter/en.html): Product, billing and developer resources in English.
 
 - [Website](https://api.linktoagi.com/): LinkAGI product homepage.
 - [Sign up](https://api.linktoagi.com/sign-up): Create an account.
@@ -12,14 +14,14 @@ Users can create separate API keys for projects, select a model and group, and i
 - [Support](https://docs.linktoagi.com/about.html#support): Customer support and trial requests.
 - [Trial contact guide](https://16871233.github.io/linkagi-api-starter/#trial): Customer support QR code, business email and QQ group 342205412.
 
-Current Codex group multipliers are Sale 0.10, Plus 0.15 and Pro 0.25. Model input, output, cache and service-tier prices are listed in the live model marketplace. Each CNY 20 of eligible API consumption earns one draw, with prizes up to CNY 100 in site credit; see the console wallet for participation.
+Current Codex group multipliers are Sale 0.08, Plus 0.15 and Pro 0.25. Model input, output, cache and service-tier prices are listed in the live model marketplace. Each CNY 20 of eligible API consumption earns one draw, with prizes up to CNY 100 in site credit; see the console wallet for participation.
 
 ## Integration resources
 
 - [API error guide](https://16871233.github.io/linkagi-api-starter/api-errors.html): Troubleshoot authentication, model routing, rate limits and timeouts; includes client setup and trial links.
 
 - [Setup and token-cost calculator](https://16871233.github.io/linkagi-api-starter/): Client-specific base URLs, live pricing links and a local calculator.
-- [GPT group selection](https://16871233.github.io/linkagi-api-starter/gpt-groups.html): Sale 0.10, Plus 0.15 and Pro 0.25 group multipliers, live pricing and trial entry.
+- [GPT group selection](https://16871233.github.io/linkagi-api-starter/gpt-groups.html): Sale 0.08, Plus 0.15 and Pro 0.25 group multipliers, live pricing and trial entry.
 - [Chinese documentation](https://docs.linktoagi.com/): Client configuration instructions.
 - [OpenAPI specification](https://raw.githubusercontent.com/16871233/linkagi-api-starter/main/openapi/linkagi.openapi.json): Starter request schema.
 - [Integration status](https://github.com/16871233/linkagi-api-starter/blob/main/INTEGRATION_STATUS.md): Scope and evidence of completed interface tests.

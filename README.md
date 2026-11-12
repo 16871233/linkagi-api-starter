@@ -1,12 +1,14 @@
 # LinkAGI API Starter
 
+[English overview](https://16871233.github.io/linkagi-api-starter/en.html) · [中文接入导航](https://16871233.github.io/linkagi-api-starter/)
+
 LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、独立 API Key、模型与分组选择，以及逐次调用日志。这个仓库放接入说明、请求样例和排错工具，由 LinkAGI 运营方维护。
 
 **[打开在线接入导航](https://16871233.github.io/linkagi-api-starter/)**：复制客户端地址、查看首次调用步骤、估算 Token 费用。
 
 [注册 LinkAGI](https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_signup) · [实时模型与价格](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_pricing) · [完整中文文档](https://docs.linktoagi.com/) · [联系客服](https://docs.linktoagi.com/about.html#support)
 
-**加入交流群并在[活动帖](https://www.v2ex.com/t/1254212)留言，可领取 5 元体验额度**：[加入 QQ 群 342205412](https://qm.qq.com/q/E968hOM5Ka)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
+**加入交流群并在[活动帖](https://www.v2ex.com/t/1255536)留言，可领取 5 元体验额度**：[加入 QQ 群 342205412](https://qm.qq.com/q/E968hOM5Ka)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
 
 QQ 交流群：**342205412** · [点击加群](https://qm.qq.com/q/E968hOM5Ka) · [群二维码与客服入口](https://docs.linktoagi.com/about.html#qq-community)。
 
