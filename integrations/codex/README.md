@@ -2,11 +2,13 @@
 
 这里是 LinkAGI 运营方维护的配置模板。已有 Codex CLI，想换成 LinkAGI 的 API，可以用这个独立配置，不必覆盖原来的 `config.toml`。
 
-[注册 LinkAGI](https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=download&utm_campaign=codex_kit_20261028) · [查看模型和价格](https://api.linktoagi.com/pricing) · [QQ群 342205412：进群可领 3 元体验额度](https://qm.qq.com/q/E968hOM5Ka)
+[注册 LinkAGI](https://api.linktoagi.com/sign-up) · [查看模型和价格](https://api.linktoagi.com/pricing) · [领取 5 元体验额度](https://16871233.github.io/linkagi-api-starter/#trial)
+
+新用户加入 QQ 群 **342205412**，并在[活动帖](https://www.v2ex.com/t/1256684)留言，可领取 **5 元站内 API 体验额度**。
 
 ## 先选分组
 
-Codex 专用 Sale 组倍率为 **0.15**。接自己的脚本或其他客户端时，选择标注“可外接”的 Plus / Pro，别直接照搬 Sale 组。倍率是站内计费系数，具体人民币单价看模型广场。
+Codex 分组倍率为 **Sale 0.08 / Plus 0.15 / Pro 0.25**。Sale 限 Codex；接自己的脚本或其他客户端时，选择标注“可外接”的分组。倍率是站内计费系数，具体人民币单价和客户端限制看模型广场。
 
 在 [API 密钥](https://api.linktoagi.com/keys) 创建对应分组的 Key，账号有调用额度后再启动。模板模型是 `gpt-6.1-sol`，也可以替换为该分组支持的其他 Responses 模型。
 

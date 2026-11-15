@@ -22,7 +22,7 @@ Codex 分组倍率：**Sale 0.08 / Plus 0.15 / Pro 0.25**。各模型输入、�
 
 [Sale / Plus / Pro 怎么选？查看分组说明与实时价格入口 →](https://16871233.github.io/linkagi-api-starter/gpt-groups.html)
 
-**已经装好 Codex CLI？** [下载接入配置包](https://16871233.github.io/linkagi-api-starter/downloads/linkagi-codex-starter-20261028.zip)，或先看[配置说明](integrations/codex/)。适用于 CLI 0.134.0 及以上，使用独立 profile，保留原来的默认配置；包含 macOS / Linux 和 Windows 的启动方法。
+**已经装好 Codex CLI？** [下载接入配置包](https://16871233.github.io/linkagi-api-starter/downloads/linkagi-codex-starter-20261115.zip)，或先看[配置说明](integrations/codex/)。适用于 CLI 0.134.0 及以上，使用独立 profile，保留原来的默认配置；包含 macOS / Linux 和 Windows 的启动方法。
 
 首次使用可以按这个顺序操作：
 
