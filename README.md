@@ -6,21 +6,21 @@ LinkAGI 是面向开发者的 AI API 中转站，提供人民币按量计费、�
 
 **[打开在线接入导航](https://16871233.github.io/linkagi-api-starter/)**：复制客户端地址、查看首次调用步骤、估算 Token 费用。
 
-[注册 LinkAGI](https://api.linktoagi.com/sign-up?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_signup) · [实时模型与价格](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_pricing) · [完整中文文档](https://docs.linktoagi.com/) · [联系客服](https://docs.linktoagi.com/about.html#support)
+[注册 LinkAGI](https://api.linktoagi.com/sign-up) · [实时模型与价格](https://api.linktoagi.com/pricing) · [完整中文文档](https://docs.linktoagi.com/) · [联系客服](https://docs.linktoagi.com/about.html#support)
 
-**加入交流群并在[活动帖](https://www.v2ex.com/t/1256684)留言，可领取 5 元体验额度**：[加入 QQ 群 342205412](https://qm.qq.com/q/E968hOM5Ka)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
+**加入交流群并在[活动帖](https://www.v2ex.com/t/1257630)留言，可领取 5 元体验额度**：[加入 QQ 群 342205412](https://qm.qq.com/q/E968hOM5Ka)。当前输入、输出和缓存价格都在[模型广场](https://api.linktoagi.com/pricing)，选好模型与分组后即可查看。
 
 QQ 交流群：**342205412** · [点击加群](https://qm.qq.com/q/E968hOM5Ka) · [群二维码与客服入口](https://docs.linktoagi.com/about.html#qq-community)。
 
 [<img src="docs/assets/qq-group.jpg" alt="LinkAGI QQ 交流群 342205412" width="200">](https://qm.qq.com/q/E968hOM5Ka)
 
-Codex 分组倍率：**Sale 0.08 / Plus 0.15 / Pro 0.25**。各模型输入、输出、缓存和服务等级价格见[实时模型广场](https://api.linktoagi.com/pricing)。
+Codex 分组倍率：**Sale 0.08 / Plus 0.15 / Pro 0.25 / Pro+ 0.35**。各模型输入、输出、缓存和服务等级价格见[实时模型广场](https://api.linktoagi.com/pricing)。
 
 **消费抽奖已上线**：每消费满 20 元获得 1 次抽奖机会，最高可得 100 元站内额度，入口在控制台[钱包](https://api.linktoagi.com/wallet)。
 
 **选分组时注意：** 按客户端与模型所需接口选择分组，当前限制以模型广场和站内公告为准。
 
-[Sale / Plus / Pro 怎么选？查看分组说明与实时价格入口 →](https://16871233.github.io/linkagi-api-starter/gpt-groups.html)
+[Sale / Plus / Pro / Pro+ 怎么选？查看分组说明与实时价格入口 →](https://16871233.github.io/linkagi-api-starter/gpt-groups.html)
 
 **已经装好 Codex CLI？** [下载接入配置包](https://16871233.github.io/linkagi-api-starter/downloads/linkagi-codex-starter-20261115.zip)，或先看[配置说明](integrations/codex/)。适用于 CLI 0.134.0 及以上，使用独立 profile，保留原来的默认配置；包含 macOS / Linux 和 Windows 的启动方法。
 
@@ -115,7 +115,7 @@ Windows PowerShell：
 )
 ```
 
-启动后输入 `/status`，确认提供方为 `linkagi`。完整排错见 [Codex 中转站配置教程](https://docs.linktoagi.com/codex-api.html?utm_source=github&utm_medium=referral&utm_campaign=github-starter)。
+启动后输入 `/status`，确认提供方为 `linkagi`。完整排错见 [Codex 中转站配置教程](https://docs.linktoagi.com/codex-api.html)。
 
 ## 2. Claude Code 中转站配置
 
@@ -133,7 +133,7 @@ Windows PowerShell：
 }
 ```
 
-这里的 Base URL **不要添加 `/v1`**。Claude Code 会继续请求 `/v1/messages`。完整排错见 [Claude Code 中转站教程](https://docs.linktoagi.com/claude-code-api.html?utm_source=github&utm_medium=referral&utm_campaign=github-starter)。
+这里的 Base URL **不要添加 `/v1`**。Claude Code 会继续请求 `/v1/messages`。完整排错见 [Claude Code 中转站教程](https://docs.linktoagi.com/claude-code-api.html)。
 
 ## 3. Gemini CLI 中转站配置
 
@@ -159,7 +159,7 @@ GEMINI_MODEL="copy-current-gemini-route-model-id"
 }
 ```
 
-模型名是占位符；使用前从实时模型广场复制当前 ID，并把首次结果视为兼容性测试而不是既定支持。完整候选配置见 [Gemini CLI 中转站教程](https://docs.linktoagi.com/gemini-cli-api.html?utm_source=github&utm_medium=referral&utm_campaign=github-starter)。
+模型名是占位符；使用前从实时模型广场复制当前 ID，并把首次结果视为兼容性测试而不是既定支持。完整候选配置见 [Gemini CLI 中转站教程](https://docs.linktoagi.com/gemini-cli-api.html)。
 
 ## 4. 不带 Key 的路由预检
 
@@ -192,7 +192,7 @@ curl -i 'https://api.linktoagi.com/v1beta/models/gemini-3.1-pro:generateContent'
 
 ## 价格与调用记录
 
-在[实时模型广场](https://api.linktoagi.com/pricing?utm_source=github&utm_medium=repository&utm_campaign=organic_entry_20260923&utm_content=readme_pricing_details)查看分组价格，在控制台核对每次调用的用量和扣费。接入自己的项目时，先跑一条短请求，再测试需要的工具调用、流式输出或长上下文功能。
+在[实时模型广场](https://api.linktoagi.com/pricing)查看分组价格，在控制台核对每次调用的用量和扣费。接入自己的项目时，先跑一条短请求，再测试需要的工具调用、流式输出或长上下文功能。
 
 ## 联系支持
 
