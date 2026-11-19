@@ -18,6 +18,8 @@ Current Codex group multipliers are Sale 0.08, Plus 0.15, Pro 0.25 and Pro+ 0.35
 
 ## Integration resources
 
+- [Claude cache troubleshooting](https://16871233.github.io/linkagi-api-starter/claude-cache.html): Distinguish cache writes, reads and regular input; compare repeated prefixes and check the scope of LinkAGI's November 18 compatibility fixes.
+
 - [API error guide](https://16871233.github.io/linkagi-api-starter/api-errors.html): Troubleshoot authentication, model routing, rate limits and timeouts; includes client setup and trial links.
 
 - [Setup and token-cost calculator](https://16871233.github.io/linkagi-api-starter/): Client-specific base URLs, live pricing links and a local calculator.

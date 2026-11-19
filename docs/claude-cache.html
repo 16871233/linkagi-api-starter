@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude 缓存为什么没命中？如何查看缓存 Token｜LinkAGI</title>
+  <meta name="description" content="区分 Claude 缓存写入、缓存读取和普通输入；检查固定前缀、缓存时效、模型门槛及接口转换。附 LinkAGI 当前修复范围与 5 元体验入口。">
+  <link rel="canonical" href="https://16871233.github.io/linkagi-api-starter/claude-cache.html">
+  <meta property="og:title" content="Claude 缓存为什么没命中？先看这三个字段">
+  <meta property="og:description" content="把缓存写入、缓存命中和实际扣费分开看。适用于排查 Claude API 缓存问题。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://16871233.github.io/linkagi-api-starter/claude-cache.html">
+  <meta name="theme-color" content="#134d43">
+  <link rel="stylesheet" href="site.css?v=20261009">
+  <link rel="stylesheet" href="trial.css?v=20261016">
+  <link rel="stylesheet" href="api-errors.css?v=20261020">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="wrap header">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">L</span> LinkAGI <span class="subbrand">/ API Starter</span></a>
+    <nav aria-label="主导航"><a href="api-errors.html">调用排错</a><a href="#trial">领 5 元体验</a></nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="error-intro">
+      <p class="eyebrow">Claude · 缓存排查</p>
+      <h1>缓存没命中，<br>先看这三个字段。</h1>
+      <p class="lead">第一次创建缓存、后续读取缓存、客户端没有显示缓存，是三种不同情况。比较费用前，先在响应和使用日志里分清它们。</p>
+      <p class="quiet">LinkAGI 运营方维护 · 2026-11-19 更新</p>
+      <nav class="error-nav" aria-label="缓存排查导航">
+        <a href="#usage"><strong>01</strong><span>看用量字段</span></a>
+        <a href="#compare"><strong>02</strong><span>做两次对照</span></a>
+        <a href="#causes"><strong>03</strong><span>找未命中原因</span></a>
+        <a href="#linkagi"><strong>04</strong><span>本站修复范围</span></a>
+        <a href="#support"><strong>05</strong><span>反馈问题</span></a>
+      </nav>
+    </section>
+    <section class="section error-section" id="usage">
+      <div class="error-label"><span>01 / USAGE</span><h2>写入不等于命中</h2></div>
+      <div>
+        <p>Claude Messages 原生响应中，重点看以下字段：</p>
+        <ul>
+          <li><code>cache_creation_input_tokens</code>：本次新写入缓存的输入 Token。</li>
+          <li><code>cache_read_input_tokens</code>：本次从缓存读取的输入 Token，大于 0 才能确认本次有缓存读取。</li>
+          <li><code>input_tokens</code>：本次未从缓存读取、也未写入缓存的普通输入 Token。</li>
+        </ul>
+        <p>在 Messages 原生用量口径下，总输入是这三项相加。OpenAI 兼容接口的用量结构不同，不能把同一套加法直接套到所有客户端。</p>
+        <p class="fix">客户端不显示缓存字段，不能直接判定没有缓存。先检查完整的用量统计，再对照本站<a href="https://api.linktoagi.com/usage-logs/common">使用日志</a>中的缓存、Token 与实际扣费。</p>
+      </div>
+    </section>
+    <section class="section error-section" id="compare">
+      <div class="error-label"><span>02 / COMPARE</span><h2>用同一段内容做对照</h2></div>
+      <div>
+        <ol>
+          <li>保持模型、分组和接口不变，使用一段真实需要反复处理的固定上下文。</li>
+          <li>确认客户端或接口启用了该模型支持的缓存方式；固定前缀长度需要达到模型的最低缓存门槛。</li>
+          <li>发出第一条请求，记录缓存写入、缓存读取和扣费。已有缓存时，第一次观察也可能直接命中。</li>
+          <li>在缓存有效期内再发一次，保持缓存断点之前的内容一致。若要换问题，把变化放在可复用前缀之后。</li>
+          <li>比较两次的缓存读取量和实际扣费，输出长度也要一起看。</li>
+        </ol>
+        <p>Anthropic 默认缓存时效为 5 分钟，另有 1 小时选项；具体线路是否支持、如何计价，以所用接口和模型为准。一次短请求足以检查连通性，通常不足以验证长前缀缓存。</p>
+        <p class="fix">缓存读取成功不代表整次任务必然更便宜。输出长度、缓存写入和所选分组价格都会影响最终费用。</p>
+      </div>
+    </section>
+    <section class="section error-section" id="causes">
+      <div class="error-label"><span>03 / CHECK</span><h2>常见的未命中原因</h2></div>
+      <div>
+        <ul>
+          <li><strong>前缀变了：</strong>系统提示词、工具定义、图片或上下文顺序变化，都可能改变缓存对应的内容。把时间戳、随机 ID 等动态内容放进固定前缀，也会影响复用。</li>
+          <li><strong>长度不足或已经过期：</strong>最低长度取决于具体模型。两次请求间隔过长，或上一次长输出耗掉大部分有效期，也可能需要重新写入。</li>
+          <li><strong>模型或上游切换：</strong>不要假定不同模型、分组、供应方或账号之间共享缓存。</li>
+          <li><strong>接口转换没有保留缓存设置：</strong>客户端发出的 <code>cache_control</code> 是否送到支持它的上游，需要结合接口链路判断。</li>
+          <li><strong>用量回传不完整：</strong>响应或客户端缺少字段时，先确认日志与协议转换，不能把缺失字段当作已证实的零命中。</li>
+        </ul>
+        <p>缓存针对输入前缀复用，不是直接返回上一次的回答。同一个问题，后续仍然可能产生新的输出。</p>
+      </div>
+    </section>
+    <section class="section error-section" id="linkagi">
+      <div class="error-label"><span>04 / LINKAGI</span><h2>这次具体修了什么</h2></div>
+      <div>
+        <p>2026 年 11 月 18 日，本站修复了部分 Claude 与 Chat Completions 协议转换中的缓存字段保留、工具调用内容及用量回传问题。</p>
+        <p><strong>自动缓存补充目前有明确范围：</strong><code>ClaudeCode-Max-C</code> 分组下的 <code>claude-fable-5-2</code>，通过 Chat Completions 转换调用时启用；请求已有明确缓存设置时优先保留。其他分组和模型不能据此视为已启用同样策略。</p>
+        <p>相关流式、非流式及用量记录已做回归验证。实际命中仍受前缀、长度、有效期和上游状态影响，测试结果不代表所有请求都会命中。</p>
+        <div class="actions"><a class="button primary" href="https://api.linktoagi.com/pricing">查看模型与价格 ↗</a><a class="button" href="https://api.linktoagi.com/usage-logs/common">查看调用日志 ↗</a></div>
+      </div>
+    </section>
+    <section class="section error-section" id="support">
+      <div class="error-label"><span>05 / SUPPORT</span><h2>仍有问题，带这几项来</h2></div>
+      <div>
+        <p>客户端名称、完整模型名、分组、发生时间、请求 ID，以及脱敏后的缓存用量字段。这些信息能帮助定位是客户端显示、接口转换还是上游缓存问题。</p>
+        <p>请勿公开 API Key、个人资料或完整私密对话。可以通过官网「关于」里的客服入口反馈。</p>
+        <p class="quiet">缓存机制参考：<a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching">Anthropic Prompt caching 文档</a>。本文的 LinkAGI 修复说明来自本站发布记录；别名模型与分组能力以本站实际配置为准。</p>
+      </div>
+    </section>
+    <section id="trial" class="section">
+      <div class="trial-panel"><div><p class="eyebrow">LinkAGI · API 中转</p><h2>带自己的任务来试</h2><p>新用户加入 QQ 群 <strong>342205412</strong> 并在<a href="https://www.v2ex.com/t/1257630">活动帖</a>留言，可领取 <strong>5 元站内 API 体验额度</strong>。人民币按用量计费，调用后可查看 Token 和扣费。</p><div class="actions"><a class="button primary" href="https://api.linktoagi.com">打开 LinkAGI ↗</a><a class="button" href="https://qm.qq.com/q/E968hOM5Ka">加入 QQ 群</a></div></div><figure><a href="https://qm.qq.com/q/E968hOM5Ka"><img src="assets/qq-group.jpg" width="1050" height="1350" alt="LinkAGI QQ 群二维码，群号 342205412" loading="lazy"></a><figcaption>LinkAGI 交流群 · 342205412</figcaption></figure></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><p>LinkAGI 运营方维护</p><nav aria-label="页脚"><a href="./">接入导航</a><a href="api-errors.html">调用排错</a><a href="https://docs.linktoagi.com/about.html">客服与交流群</a></nav></footer>
+</body>
+</html>

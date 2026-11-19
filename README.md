@@ -35,6 +35,8 @@ Chat Completions、Responses 的调用样例与各客户端进度见[验证记�
 
 遇到错误时可查阅 [Claude Code 401](docs/claude-code-401.md)、[401 / 403 / 404 / 429 在线排错指南](https://16871233.github.io/linkagi-api-starter/api-errors.html)，也可以下载[浏览器路由诊断工具](tools/linkagi-diagnose.html)。
 
+**Claude 缓存没命中？** [查看缓存用量与排查指南](https://16871233.github.io/linkagi-api-starter/claude-cache.html)：区分缓存写入和读取，用同一段前缀做对照，检查接口转换及本站当前修复范围。
+
 > 不要把真实 API Key 提交到 Git 仓库。下面所有 `sk-...` 都是占位符。
 
 ## 可导入资产
