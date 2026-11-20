@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>领到 API 体验额度后，怎样完成第一次调用？｜LinkAGI</title>
+  <meta name="description" content="LinkAGI 新用户首次调用清单：核对体验额度、选择模型与分组、打开客户端教程、发送短请求，再到使用日志核对结果。附接入问题反馈模板。">
+  <link rel="canonical" href="https://16871233.github.io/linkagi-api-starter/first-call.html">
+  <meta property="og:title" content="LinkAGI 首次调用清单：领到额度后，从哪里开始？">
+  <meta property="og:description" content="先核对额度，再选模型与分组。按客户端教程完成一条短请求，出错时用反馈模板说明卡在哪一步。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://16871233.github.io/linkagi-api-starter/first-call.html">
+  <meta name="theme-color" content="#134d43">
+  <link rel="stylesheet" href="site.css?v=20261009">
+  <link rel="stylesheet" href="trial.css?v=20261016">
+  <style>
+    #steps .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+    #steps .steps li{min-width:0}
+    #feedback pre{max-width:100%;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.8;padding:20px;background:#fff;border:1px solid var(--line);border-radius:8px}
+    @media(max-width:760px){#steps .steps{grid-template-columns:1fr}.header{align-items:flex-start;flex-wrap:wrap}h1{font-size:clamp(32px,8vw,48px)}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="wrap header">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">L</span> LinkAGI <span class="subbrand">/ API Starter</span></a>
+    <nav aria-label="主导航"><a href="#trial">申请体验</a><a href="#steps">开始调用</a><a href="#feedback">反馈问题</a></nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="section">
+      <p class="eyebrow">LinkAGI · 新用户接入</p>
+      <h1>领到额度后，<br>先完成一条短请求。</h1>
+      <p class="lead">从“已经申请”到“第一次收到回复”，中间还要核对余额、模型和客户端配置。这份清单帮你找到下一步。</p>
+      <p>本页由 LinkAGI 运营方维护。LinkAGI 是独立的第三方 API 服务，按人民币用量计费；具体模型、接口与价格以<a href="https://api.linktoagi.com/pricing">实时模型广场</a>为准。</p>
+      <div class="actions"><a class="button primary" href="#steps">我已到账，开始接入</a><a class="button" href="#trial">我还没领到额度</a></div>
+    </section>
+
+    <section id="trial" class="section">
+      <p class="eyebrow">先确认当前进度</p>
+      <h2>申请体验，不等于额度已经到账。</h2>
+      <p>新用户注册后，加入 QQ 群 <strong>342205412</strong>，并在<a href="https://www.v2ex.com/t/1257630">活动帖</a>留下站内 ID，再联系客服申请 <strong>5 元站内 API 体验额度</strong>。由人工核对发放，注册不会自动到账。</p>
+      <p>已经申请过的，先到<a href="https://api.linktoagi.com/wallet">钱包</a>核对可用余额。如果还没收到或不确定处理进度，在原申请处说明站内 ID 和申请时间，请客服核对。余额为零也可能是额度已经使用，不能据此重复领取。</p>
+      <div class="actions"><a class="button" href="https://api.linktoagi.com/sign-up">注册 LinkAGI</a><a class="button" href="https://qm.qq.com/q/E968hOM5Ka">加入 QQ 群</a><a class="button" href="https://docs.linktoagi.com/about.html#support">联系客服</a></div>
+    </section>
+
+    <section id="steps" class="section">
+      <p class="eyebrow">从到账到调用记录</p>
+      <h2>按这个顺序检查。</h2>
+      <ol class="steps">
+        <li><h3>选好模型和分组</h3><p>打开<a href="https://api.linktoagi.com/pricing">模型广场</a>，复制完整模型名，核对接口类型、分组和客户端限制。Codex 分组倍率为 Sale 0.08 / Plus 0.15 / Pro 0.25 / Pro+ 0.35；倍率不是一条请求的价格，输入、输出、缓存和服务等级要分别看。</p><p><a href="gpt-groups.html">查看分组与价格说明 →</a></p></li>
+        <li><h3>创建一把单独测试的 Key</h3><p>在<a href="https://api.linktoagi.com/keys">API 密钥</a>中选择对应分组，并核对 Key 的可用额度、有效期和模型范围。Key 的额度上限与账号余额需要同时满足调用要求。不要把 Key 发到帖子、群聊或本页。</p></li>
+        <li><h3>按正在使用的客户端配置</h3><p>先打开对应教程，填入地址、自己的 Key 和完整模型名。不要把不同客户端的地址格式混用；修改配置后，确认当前客户端会话实际读到了新设置。</p><div class="actions"><a class="button" href="https://docs.linktoagi.com/codex-api.html">Codex 教程</a><a class="button" href="https://docs.linktoagi.com/claude-code-api.html">Claude Code 参考</a><a class="button" href="https://docs.linktoagi.com/gemini-cli-api.html">Gemini CLI 参考</a><a class="button" href="https://docs.linktoagi.com/">其他接入文档</a></div><p class="quiet">Claude Code、Gemini CLI 的链接提供配置参考，不代表完整客户端流程已由本页实测。模型列表可读取，也不代表工具调用、长会话等功能都已验证。</p></li>
+        <li><h3>发送一条短请求，核对日志</h3><p>先让模型“只回复：接入成功”。关闭自动循环、批量任务，暂时去掉图片、工具调用和超长历史。收到回复后，打开<a href="https://api.linktoagi.com/usage-logs/common">使用日志</a>，按时间核对模型、状态、Token 和扣费，再用一个小任务检查你真正需要的功能。</p><p>客户端超时后先查日志，避免重复执行。基础调用成功，也不代表后续每种任务都兼容。</p></li>
+      </ol>
+    </section>
+
+    <section id="feedback" class="section">
+      <p class="eyebrow">没有跑通时</p>
+      <h2>把卡住的一步说明白。</h2>
+      <p>在原活动帖回复，或联系<a href="https://docs.linktoagi.com/about.html#support">客服</a>。可以复制下面的模板，删掉不适用的项目。错误信息、截图中若有密钥或个人内容，先遮挡。</p>
+      <pre><code>当前进度：尚未到账 / 已到账未配置 / 调用失败 / 收到回复但功能异常
+客户端及版本：
+模型完整名称：
+所选分组：
+发生时间（含时区）：
+错误码和脱敏后的错误正文：
+使用日志中是否有对应记录：
+请求 ID（如果有）：</code></pre>
+      <p class="note">请勿发送 API Key、密码、完整请求正文或客户文件。本站可结合时间与请求 ID 排查，通常无需公开这些内容。</p>
+      <div class="actions"><a class="button" href="api-errors.html">401 / 403 / 404 / 429 排错</a><a class="button" href="claude-cache.html">Claude 缓存排查</a><a class="button primary" href="https://api.linktoagi.com/usage-logs/common">查看我的使用日志</a></div>
+    </section>
+  </main>
+  <footer class="wrap footer"><p>LinkAGI 运营方维护 · 更新于 2026-11-20</p><nav aria-label="页脚"><a href="./">返回接入导航</a><a href="https://api.linktoagi.com">LinkAGI 官网</a><a href="https://docs.linktoagi.com/">完整文档</a></nav></footer>
+</body>
+</html>

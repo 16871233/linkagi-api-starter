@@ -26,6 +26,8 @@ Codex 分组倍率：**Sale 0.08 / Plus 0.15 / Pro 0.25 / Pro+ 0.35**。各模�
 
 首次使用可以按这个顺序操作：
 
+已经申请或领到体验额度？先看[首次调用清单](https://16871233.github.io/linkagi-api-starter/first-call.html)，核对到账、客户端配置和使用日志；遇到问题可直接使用页面中的反馈模板。
+
 1. 注册并完成邮箱验证，联系客服领取体验额度，或在[钱包](https://api.linktoagi.com/wallet)充值。
 2. 从[模型广场](https://api.linktoagi.com/pricing)选择模型和分组，再到[API 密钥](https://api.linktoagi.com/keys)创建独立测试 Key。
 3. 按下方教程配置客户端，先发送一条短请求。
