@@ -45,6 +45,7 @@ Chat Completions、Responses 的调用样例与各客户端进度见[验证记�
 
 - [OpenAPI 3.1 规范](openapi/linkagi.openapi.json)
 - [Postman 集合与环境](postman/)
+- [n8n 工作流：从会议笔记提取待办、期限和原话](https://16871233.github.io/linkagi-api-starter/n8n-meeting-notes.html)
 - [公开 Postman API Network 集合](https://www.postman.com/lhs-1-s-team/linkagi-api/collection/8nl8r40/linkagi-api)
 - [APIs.json 发现清单](apis.json)
 - [机器可读实时价格 JSON](https://api.linktoagi.com/api/pricing)
