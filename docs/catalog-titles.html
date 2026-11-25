@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>用 DeepSeek API 把 CSV 商品标题翻成英文 | LinkAGI</title><meta name="description" content="下载可直接运行的 Python 示例，把商品表里的中文标题批量翻成英文。保留 SKU、型号和规格，默认只翻一条。"><link rel="canonical" href="https://16871233.github.io/linkagi-api-starter/catalog-titles.html"><link rel="stylesheet" href="site.css?v=20261009"></head>
+<body><header class="wrap header"><a class="brand" href="./">LinkAGI</a></header><main class="wrap"><section class="section"><h1>给商品表加一列英文标题</h1>
+<p>手里有一张 SKU 表，要做英文目录？把它另存为 UTF-8 CSV，脚本会逐行翻译标题，把英文放进新文件的 <code>title_en</code> 列。提示词要求保留型号、容量和件数。</p>
+<p><a class="button primary" href="https://github.com/16871233/linkagi-api-starter/releases/download/catalog-titles-v1/catalog-titles.zip">下载脚本和两条示例商品</a> · <a href="https://github.com/16871233/linkagi-api-starter/blob/main/docs/downloads/catalog/translate_titles.py">查看 Python 源码</a></p>
+<h2>先跑一条</h2><ol><li>解压下载包。在 <a href="https://api.linktoagi.com/keys">LinkAGI 控制台</a>创建 <strong>DeepSeek</strong> 分组的 API Key。</li><li>用 Python 3 在解压目录运行下面的命令，按提示输入 Key。脚本只使用 Python 标准库。</li></ol>
+<pre><code>python3 translate_titles.py example.csv result.csv</code></pre>
+<p>Python 在 Windows 里如果叫 <code>py</code>，把命令开头换成 <code>py</code>。用 Excel 打开 <code>result.csv</code>，检查型号、数量和单位。确认后换自己的文件，例如一次处理前 20 条非空标题：</p>
+<pre><code>python3 translate_titles.py products.csv products-en.csv --limit 20</code></pre>
+<p>输入表头需要有 <code>sku</code> 和 <code>title</code>。脚本只把标题发给接口，每条调用一次 <code>deepseek-v4.1-flash</code>，会产生 API 费用。输出文件保留 SKU、原标题和译文。出错时脚本会显示停在哪一行，已经写出的翻译仍在文件里。</p>
+<p><a href="https://api.linktoagi.com/pricing">看当前模型价格</a> · <a href="https://api.linktoagi.com/sign-up">注册 LinkAGI</a> · <a href="./#trial">领取新用户 5 元体验额度</a></p></section></main></body></html>

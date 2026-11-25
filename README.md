@@ -41,6 +41,8 @@ Chat Completions、Responses 的调用样例与各客户端进度见[验证记�
 
 > 不要把真实 API Key 提交到 Git 仓库。下面所有 `sk-...` 都是占位符。
 
+[CSV 商品标题批量翻译（Python 示例）](https://16871233.github.io/linkagi-api-starter/catalog-titles.html) · [English instructions](docs/downloads/catalog/README.md)
+
 ## 可导入资产
 
 - [OpenAPI 3.1 规范](openapi/linkagi.openapi.json)
