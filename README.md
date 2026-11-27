@@ -43,6 +43,8 @@ Chat Completions、Responses 的调用样例与各客户端进度见[验证记�
 
 [CSV 商品标题批量翻译（Python 示例）](https://16871233.github.io/linkagi-api-starter/catalog-titles.html) · [English instructions](docs/downloads/catalog/README.md)
 
+**安卓手机接入：** [RikkaHub 图文教程](https://docs.linktoagi.com/#mobile)，含 8 张界面截图。已在 RikkaHub 3.3.1 中验证 DeepSeek 分组的流式聊天与连续追问；[配置速查](integrations/rikkahub/)。
+
 ## 可导入资产
 
 - [OpenAPI 3.1 规范](openapi/linkagi.openapi.json)
